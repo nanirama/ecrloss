@@ -3,41 +3,58 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import PageBody from '../components/PageBody';
 import SEO from '../components/SEO';
+import PageBody from '../components/PageBody';
 
-const HomeTemplate = ({ data, location }) => {
+const PageTemplate = ({ data, location }) => {
   const {
-    prismicLayout: { data: layout },
-    prismicHome: { data: page },
+    prismicPage: { data: page },
   } = data;
 
   if (!page) return null;
 
+  const {
+    meta_title: metaTitle,
+    meta_description: metaDescription,
+    social_card: socialCard,
+  } = page;
+  console.log('Current Page',page)
   return (
     <Layout location={location}>
-      <SEO pathname={location.pathname} />
+      <SEO
+        pathname={location.pathname}
+        title={metaTitle || page.title.text}
+        description={metaDescription}
+        image={socialCard.url ? socialCard.url : undefined}
+      />
       <PageBody document={page} />
     </Layout>
   );
 };
 
-HomeTemplate.propTypes = {
+PageTemplate.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default HomeTemplate;
+export default PageTemplate;
 
-export const data = graphql`
-  query {
-    ...LayoutFragment
-    prismicHome {
+export const query = graphql`
+  query PageBySlug($uid: String!) {
+    prismicPage(uid: { eq: $uid }) {
       data {
         title {
           html
+          text
+        }
+        meta_title
+        meta_description
+        social_card {
+          alt
+          gatsbyImageData(layout: FULL_WIDTH)
+          url
         }
         body {
-          ... on PrismicHomeDataBodyCta {
+          ... on PrismicPageDataBodyCta {
             id
             slice_type
             primary {
@@ -54,7 +71,7 @@ export const data = graphql`
               }
             }
           }
-          ... on PrismicHomeDataBodyHero {
+          ... on PrismicPageDataBodyHero {
             id
             slice_type
             primary {
@@ -74,12 +91,12 @@ export const data = graphql`
               pre_heading
               subheading
               image {
-                gatsbyImageData(layout: FULL_WIDTH)
+                gatsbyImageData(layout: FULL_WIDTH, width: 550)
                 url                
               }
             }
           }
-          ... on PrismicHomeDataBodyImageCta {
+          ... on PrismicPageDataBodyImageCta {
             id
             slice_type
             primary {
@@ -95,12 +112,12 @@ export const data = graphql`
                 html
               }
               image {
-                gatsbyImageData(layout: FULL_WIDTH, height: 550)
+                gatsbyImageData(layout: FULL_WIDTH, width: 550)
                 url 
               }
             }
           }
-          ... on PrismicHomeDataBodyGridNav {
+          ... on PrismicPageDataBodyGridNav {
             id
             slice_type
             items {
@@ -117,7 +134,7 @@ export const data = graphql`
               subheading
             }
           }
-          ... on PrismicHomeDataBodyMetrics {
+          ... on PrismicPageDataBodyMetrics {
             id
             slice_type
             primary {
@@ -130,17 +147,17 @@ export const data = graphql`
               value
             }
           }
-          ... on PrismicHomeDataBodyLogosStrip {
+          ... on PrismicPageDataBodyLogosStrip {
             id
             slice_type
             items {
               image {
-                gatsbyImageData(layout: FULL_WIDTH, height: 60, width: 160)
-                url                 
+                gatsbyImageData(layout: FULL_WIDTH, width: 550, height: 60)
+                url 
               }
             }
           }
-          ... on PrismicHomeDataBodyTextBlock {
+          ... on PrismicPageDataBodyTextBlock {
             id
             slice_type
             primary {
@@ -152,7 +169,7 @@ export const data = graphql`
               }
             }
           }
-          ... on PrismicHomeDataBodyActionBar {
+          ... on PrismicPageDataBodyActionBar {
             id
             slice_type
             primary {
@@ -172,7 +189,7 @@ export const data = graphql`
                       name
                       title
                       photo {
-                        gatsbyImageData(layout: FIXED, height: 60, width: 60)
+                        gatsbyImageData(layout: FIXED, width: 60, height: 60)
                         url                         
                       }
                     }
@@ -181,7 +198,7 @@ export const data = graphql`
               }
             }
           }
-          ... on PrismicHomeDataBodyVideo {
+          ... on PrismicPageDataBodyVideo {
             id
             slice_type
             primary {
@@ -194,30 +211,56 @@ export const data = graphql`
               }
             }
           }
-          ... on PrismicHomeDataBodyPapersGrid {
+          ... on PrismicPageDataBodyMap {
+            id
+            slice_type
+            items {
+              name
+              country
+              city
+              address
+              post_code
+              email
+              location {
+                latitude
+                longitude
+              }
+            }
+          }
+          ... on PrismicPageDataBodyTeam {
             id
             slice_type
             primary {
               heading {
                 html
               }
-              subheading
+              size
             }
             items {
-              research {
-                id
-                type
+              person {
                 uid
+                type
                 document {
-                  ... on PrismicResearch {
+                  ... on PrismicPerson {
                     id
                     data {
-                      title {
-                        text
+                      name
+                      title
+                      bio {
+                        html
                       }
-                      subtitle
-                      cover {
-                        gatsbyImageData(layout: FULL_WIDTH, width: 310)
+                      linkedin {
+                        url
+                        uid
+                        type
+                        target
+                      }
+                      photo {
+                        gatsbyImageData(layout: FIXED, width: 128, height: 128)
+                        url 
+                      }
+                      photoBig: photo {
+                        gatsbyImageData(layout: FIXED, width: 176, height: 176)
                         url 
                       }
                     }

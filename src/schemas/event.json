@@ -1,0 +1,170 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug"
+      }
+    },
+    "start_date": {
+      "type": "Timestamp",
+      "config": {
+        "label": "Start Date"
+      }
+    },
+    "end_date": {
+      "type": "Timestamp",
+      "config": {
+        "label": "End Date"
+      }
+    },
+    "custom_date": {
+      "type": "Text",
+      "config": {
+        "label": "Custom Date"
+      }
+    },
+    "description": {
+      "type": "Text",
+      "config": {
+        "label": "Description"
+      }
+    },
+    "description_richtext": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Description RichText"
+      }
+    },
+    "city": {
+      "type": "Text",
+      "config": {
+        "label": "City"
+      }
+    },
+    "organiser": {
+      "type": "Text",
+      "config": {
+        "label": "Organiser"
+      }
+    },
+    "address": {
+      "type": "Text",
+      "config": {
+        "label": "Address"
+      }
+    },
+    "price": {
+      "type": "Text",
+      "config": {
+        "label": "Price"
+      }
+    },
+    "featured_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Featured Image"
+      }
+    },
+    "register_label": {
+      "type": "Text",
+      "config": {
+        "label": "Register Label"
+      }
+    },
+    "register_url": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Register URL"
+      }
+    }
+  },
+  "Meta": {
+    "category": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": [
+          "category"
+        ],
+        "label": "Category"
+      }
+    },
+    "files": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "Label"
+            }
+          },
+          "file": {
+            "type": "Link",
+            "config": {
+              "select": "media",
+              "label": "File"
+            }
+          }
+        },
+        "label": "Files"
+      }
+    },
+    "links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "Label"
+            }
+          },
+          "link_url": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "Link URL"
+            }
+          }
+        },
+        "label": "Links"
+      }
+    }
+  },
+  "SEO & Social": {
+    "meta_title": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Title"
+      }
+    },
+    "meta_description": {
+      "type": "Text",
+      "config": {
+        "label": "Meta description"
+      }
+    },
+    "social_card": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Social Card"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name"
+      }
+    },
+    "logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Logo"
+      }
+    },
+    "website": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Website"
+      }
+    }
+  }
+}
