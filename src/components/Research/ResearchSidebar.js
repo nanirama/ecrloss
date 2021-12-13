@@ -46,7 +46,6 @@ const SideBarContent = ({
     sidebarOpen,
     onSetSidebarOpen
   }) => {
-    console.log('Download Url', downloadURL)
     const [working, setWorking] = useState(false);
     const [success, setSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');

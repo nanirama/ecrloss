@@ -4,7 +4,6 @@ import slugify from '../../utils/slugify';
 import styled from "styled-components";
 
 const TOC = ({ data }) => {
-  console.log('TOC data', data )
   return(
   <Links>
     {data.map((item) => (

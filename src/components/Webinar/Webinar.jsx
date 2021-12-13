@@ -25,7 +25,6 @@ const renderFile = (item) => {
 
 const Webinar = ({ document, children }) => {
   const { files, links } = document;
-  console.log('Webinar links', links)
 
   const normalizedLinks = links.filter((link) => link.link_url.url && link.link_url.url.length > 0);
   const normalizedFiles = files.filter((file) => file.file.url && file.file.url.length > 0);

@@ -32,7 +32,16 @@ module.exports = {
         preset: "@theme-ui/preset-funk",
       },
     },
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        "ssr": false,
+        "displayName": false,
+        "fileName": false,
+        "minify": false,
+        "transpileTemplateLiterals": false
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
