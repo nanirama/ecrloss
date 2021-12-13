@@ -200,7 +200,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const events = data.Events.edges;
 
-    console.log('Events list', events)
 
     paginate({
       createPage,
@@ -262,9 +261,7 @@ exports.createPages = async ({ graphql, actions }) => {
       });  
     }
     
-
-    //console.log('Past Events', pastEvents)
-    //console.log('Future Events', futureEvents)
+    
 
     const webinars =  data.Webinars.edges;
     paginate({

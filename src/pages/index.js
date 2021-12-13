@@ -8,7 +8,6 @@ import SEO from '../components/SEO';
 
 const HomeTemplate = ({ data, location }) => {
   const {
-    prismicLayout: { data: layout },
     prismicHome: { data: page },
   } = data;
 
@@ -30,7 +29,6 @@ export default HomeTemplate;
 
 export const data = graphql`
   query {
-    ...LayoutFragment
     prismicHome {
       data {
         title {
