@@ -11,7 +11,6 @@ const Header = ({ title, category, author, image, basePath }) => {
       data: { color, name: categoryName, color: categoryColor },
     },
   } = category;
-  console.log('Author Info', author)
   const bimage = getImage(image)
   return (
     <div>

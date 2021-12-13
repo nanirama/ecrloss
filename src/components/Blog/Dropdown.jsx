@@ -9,7 +9,6 @@ import ArrowDown from '../../assets/icons/ArrowDown'
 import styled from "styled-components";
 
 const Dropdown = ({ items, path }) => {
-  console.log('Drop down Categories', items)
   const selected = items.find((item) => item.path === path);
   const { theme } = useThemeUI()
   return (

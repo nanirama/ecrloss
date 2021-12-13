@@ -85,7 +85,6 @@ const LayoutData = ({ ...props }) => {
         }  
     `
   )
-  console.log('Layout Page')
   const {
     logo,
     header_navigation: headerNavigation,

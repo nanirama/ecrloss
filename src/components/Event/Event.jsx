@@ -21,7 +21,6 @@ const Event = ({ data }) => {
     address,
     price,
   } = data;
-  console.log('My Image', image)
   const eventimage = getImage(image)
   return (
     <Box as="section">

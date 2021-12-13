@@ -22,7 +22,6 @@ const EventListTemplate = ({ data, pageContext, location }) => {
   let futureEvens = []
   eventsData.map((event) => {
     let isPast = moment() > moment(event.node.data.start_date);
-    console.log('isPast', isPast)
     if(isPast){
       pastEvents.push(event.node)
     } else {
@@ -30,8 +29,6 @@ const EventListTemplate = ({ data, pageContext, location }) => {
     }
   });
 
-  console.log('Past Events', pastEvents)
-  console.log('Future events', futureEvens)
 
   if (!events) return null;
 

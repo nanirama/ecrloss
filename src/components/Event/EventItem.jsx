@@ -22,11 +22,9 @@ const EventItem = ({ event, basePath }) => {
     },
   } = event;
   let eventURL = `${basePath}/${uid}`;
-  console.log('Start Date' , startDate)
 
   const isPast = moment() > moment(startDate);
 
-  console.log('Start Date isPast' , isPast)
 
   return (
     <BoxItem>

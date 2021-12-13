@@ -15,8 +15,6 @@ const BlogTemplate = ({ data, pageContext, location }) => {
 
   if (!page) return null;
 
-  console.log('Myy Page Data', page)
-
   const {
     title,
     excerpt,
