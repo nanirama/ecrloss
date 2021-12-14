@@ -17,7 +17,6 @@ const CTA = ({ slice }) => {
     action_label: actionLabel,
     action_url: actionURL,
   } = slice.primary;
-  console.log('Slice', slice.primary)
   return (
     <section>
       <Container>

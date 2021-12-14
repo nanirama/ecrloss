@@ -1,0 +1,51 @@
+{
+  "Main" : {
+    "label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Label"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "nav_item" : [ ]
+        },
+        "choices" : {
+          "nav_item" : {
+            "type" : "Slice",
+            "fieldset" : "Nav Item",
+            "description" : "Nav",
+            "icon" : "insert_link",
+            "display" : "list",
+            "non-repeat" : {
+              "subcategory_label" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Subcategory Label"
+                }
+              }
+            },
+            "repeat" : {
+              "link_label" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Label"
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Link URL"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

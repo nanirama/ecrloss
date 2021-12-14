@@ -18,7 +18,6 @@ const PageTemplate = ({ data, location }) => {
     meta_description: metaDescription,
     social_card: socialCard,
   } = page;
-  console.log('Current Page',page)
   return (
     <Layout location={location}>
       <SEO

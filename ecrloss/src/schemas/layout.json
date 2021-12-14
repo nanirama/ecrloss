@@ -1,0 +1,125 @@
+{
+  "Header": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name"
+      }
+    },
+    "logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Logo"
+      }
+    },
+    "header_navigation": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "Label"
+            }
+          },
+          "link_url": {
+            "type": "Text",
+            "config": {
+              "label": "Link URL"
+            }
+          },
+          "meganav": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "meganav"
+              ],
+              "label": "MegaNav"
+            }
+          }
+        },
+        "label": "Header Navigation"
+      }
+    },
+    "header_body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "button": []
+        },
+        "choices": {
+          "button": {
+            "type": "Slice",
+            "fieldset": "Button",
+            "description": "CTA Button",
+            "icon": "crop_7_5",
+            "display": "list",
+            "non-repeat": {
+              "action_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Action label"
+                }
+              },
+              "action_url": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Action URL"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "Footer": {
+    "footer_body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "nav_item": []
+        },
+        "choices": {
+          "nav_item": {
+            "type": "Slice",
+            "fieldset": "Nav Item",
+            "description": "Nav Item with Sub Navigation",
+            "icon": "insert_link",
+            "display": "list",
+            "non-repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label"
+                }
+              }
+            },
+            "repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label"
+                }
+              },
+              "link_url": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Link URL"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

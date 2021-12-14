@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Footer from './Footer';
 
-import GlobalStyle from '../../layout/globalStyles';
 import styled from "styled-components";
 
 const Layout = ({ headerData, footerData, children, location, bgcolor='#ffffff' }) => {
-//console.log('Bg color', bgcolor)
 
   return (
-      <>
-      <GlobalStyle />
+      <>      
       <Header data={headerData}/>
       <div>
         {children}

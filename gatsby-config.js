@@ -26,11 +26,18 @@ module.exports = {
     mapboxToken: process.env.MAPBOX_PUBLIC_TOKEN,
   },
   plugins: [
+    `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-theme-ui`,
+      resolve: `gatsby-plugin-sharp`,
       options: {
-        preset: "@theme-ui/preset-funk",
-      },
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 100,
+          backgroundColor: `transparent`,
+          webpOptions: {quality: 100}
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -58,29 +65,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        defaults: {
-          formats: [`auto`, `webp`],
-          placeholder: `blurred`,
-          quality: 100,
-          backgroundColor: `transparent`,
-          webpOptions: {quality: 100}
-        }
-      }
-    },
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        "displayName": false,
-        "fileName": false,
-        "minify": false,
-        "transpileTemplateLiterals": false
-      },
-    },
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -104,8 +88,6 @@ module.exports = {
           ],
         },
       },
-
-
     },
     {
       resolve: `gatsby-source-prismic`,
@@ -126,9 +108,7 @@ module.exports = {
           webinar: require('./src/schemas/webinar.json'),
           event: require('./src/schemas/event.json'),
           question: require('./src/schemas/question.json'),
-        },
-        //linkResolver: () => prismicLinkResolver,
-        //htmlSerializer: () => HtmlSerializer,
+        }
       },
     },
     

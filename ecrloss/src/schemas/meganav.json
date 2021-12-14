@@ -1,0 +1,26 @@
+{
+  "Main" : {
+    "name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Name"
+      }
+    },
+    "mega_nav_items" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "mega_nav_item" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "meganavitem" ],
+              "label" : "Mega Nav Item"
+            }
+          }
+        },
+        "label" : "Mega Nav Items"
+      }
+    }
+  }
+}

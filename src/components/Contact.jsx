@@ -61,7 +61,6 @@ const Contact = ({
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   useEffect(() => {
-    console.log('rightOpen', rightOpen)
   }, [rightOpen])
   const encode = (data) => {
     return Object.keys(data)
