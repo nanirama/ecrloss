@@ -25,7 +25,47 @@ hr{ border:1px solid #4E50F7; width:100%;margin:64px 0;}
 #download button{text-transform:capitalize;background-color: transparent;margin: 32px 0px 0px;color:#4E50F7;border: 2px solid #4E50F7;}
 #download button:hover{background-color:#4E50F7;color:#fff;}
 #download p{ font-size:14px;}
-
+.inputwrap{
+	box-sizing: border-box;
+	margin: 16px 0px 0px;
+	min-width: 0px;
+	display: block;
+	width: 100%;
+	padding: 8px 0px;
+	appearance: none;
+	line-height: inherit;
+	color: inherit;
+	background-color: transparent;
+	font-size: 12px;
+	border-top: medium none;
+	border-right: medium none;
+	border-left: medium none;
+	border-image: none 100% / 1 / 0 stretch;
+	outline: currentcolor none medium;
+	border-radius: 0px;
+	border-bottom: 1px solid #D1D1D1;
+}
+.inputwrapselect{
+	width: 100%;
+	border-top: medium none;
+	border-right: medium none;
+	border-left: medium none;
+	border-image: none 100% / 1 / 0 stretch;
+	background-color: transparent;
+	font-size: 12px;
+	color: var(--theme-ui-colors-text,#3C3C3B);
+	padding-bottom: 8px;
+	margin: 16px 0px 0px;
+	outline: currentcolor none 0px;
+	border-bottom: 1px solid #D1D1D1;
+}
+.weFKk{
+	box-sizing: border-box;
+	margin: 0px;
+	min-width: 0px;
+	font-size: 12px;
+	color: var(--theme-ui-colors-accent,#4E50F7);
+}
 
 @media (max-width: 767px) {
   h1{font-size:40px;line-height:45px;}
