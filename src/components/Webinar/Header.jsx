@@ -53,9 +53,9 @@ const Header = ({
             </Button>
           </div> */}
           <Flex>
-         
+         <MainImg>
           <GatsbyImage image={wimage} alt={title.text} />
-          
+          </MainImg>
             <BoxRight
              
             >
@@ -106,7 +106,7 @@ export default Header;
 
 const BoxBg = styled.div`
 background-color:#f7f7f7;
-padding:32px 0 16px 0;
+padding:35px 0 16px 0;
 p{
   margin: 0px 0px 16px;
   font-size: 14px;
@@ -134,19 +134,19 @@ margin: 0 auto;
 `;
 const BoxMid = styled.div`
 max-width:1000px;
-margin: 32px auto;
+margin: 46px auto 32px auto;
 `;
 const Flex = styled.div`
 display:flex;
 flex-direction:row;
-margin-top:64px;
+margin-top:60px;
   @media (max-width:767px){
     flex-direction:column;
     margin-top:16px;
   }
 `;
 const Button = styled.div`
-padding: 8px 32px;
+padding: 8px 32px;float:left;
 background-color:#4E50F7;
 color:#fff;
 text-transform: uppercase;
@@ -159,10 +159,15 @@ font-size: 16px;
 `;
 const BoxRight = styled.div`
 width: 400px;
-margin:0 10px 0 32px;
+margin:0 0px 0 32px;
   @media (max-width:767px){
     width: 100%;
     margin:0px; 
     padding:15px 15px 0 15px;
   }
+  p{ line-height:18px;}
+`;
+const MainImg = styled.div`
+flex: 1 1 0%;
+
 `;

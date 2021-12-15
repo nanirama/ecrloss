@@ -28,7 +28,7 @@ const QuestionListTemplate = ({ data }) => {
 export default QuestionListTemplate;
 
 const Container = styled.div`
-max-width:930px;margin: 0 auto;padding:0 15px;
+max-width:900px;margin: 0 auto;padding:0 15px;
 `;
 const FaqBox = styled.div`
 display:flex;

@@ -1,12 +1,9 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx, useThemeUI, IconButton } from 'theme-ui';
 import styled from "styled-components";
 
 import ArrowUp from '../assets/icons/ArrowUp'
 
 const ScrollToTopButton = () => {
-  const { theme } = useThemeUI();
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -14,7 +11,6 @@ const ScrollToTopButton = () => {
 
   return (
     <ScrollBtn
-      type="button"
       onClick={scrollTop}
     >
       <ArrowUp fill="#4E50F7" />

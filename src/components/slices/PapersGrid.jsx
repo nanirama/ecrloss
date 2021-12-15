@@ -66,8 +66,8 @@ export default PapersGrid;
 
 const Container = styled.div`
 width: 100%;
-max-width: 1230px;
-margin: 128px auto;
+max-width: 1200px;
+margin: 124px auto 112px auto;
 padding:0 16px;
 text-align: center;
 @media (max-width:1024px) {
@@ -80,7 +80,7 @@ text-align: center;
 const Paragraph = styled.p`
 width: 100%;
 max-width: 700px;
-margin: 0 auto 32px auto;
+margin: 0 auto 16px auto;
 line-height:22px;
 `;
 const SubBlock = styled.div`
@@ -99,7 +99,7 @@ ul{
     display:inline-block;
   }
   li{
-    padding:16px;
+    padding:16px 16px 20px 16px;
     position:relative;
   }
 }
@@ -112,9 +112,9 @@ width:310px;
 `;
 const Text = styled.div`
 position:absolute;
-left:50px;
-right:50px;
-top:80px;
+left:48px;
+right:48px;
+top:99px;
 bottom:0;
 text-align:left;
 @media (max-width: 479px) {
@@ -126,10 +126,10 @@ h1{
   color:#fff;
   text-align:left;
   line-height: 52px;
-  margin-bottom:20px;
+  margin-bottom:19px;
 }
 p{
-  line-height: 16px;
+  line-height: 15px;
   color:#fff;
   font-size: 12px;
 text-align: left;
@@ -142,7 +142,7 @@ h3{
   font-size:28px;
   color:#fff;
   font-weight: 500;
-  line-height: 34px;
+  line-height: 34px;padding-top:16px;
   @media (max-width: 479px) {
     font-size:26px;
     line-height:32px;

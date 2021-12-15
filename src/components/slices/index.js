@@ -8,7 +8,7 @@ import TextBlock from './TextBlock';
 import ActionBar from './ActionBar';
 import Video from './Video';
 import Image from './Image';
-import Map from './Map';
+import Map from './Map'
 import TeamGrid from './TeamGrid';
 import PapersGrid from './PapersGrid';
 

@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx, useThemeUI } from 'theme-ui';
-
 import React from 'react';
 import shortid from 'shortid';
 import { Link } from 'gatsby';
@@ -10,7 +7,7 @@ import styled from "styled-components";
 
 const Dropdown = ({ items, path }) => {
   const selected = items.find((item) => item.path === path);
-  const { theme } = useThemeUI()
+
   return (
     <Flex>
       <Text>Browse</Text>
@@ -51,8 +48,8 @@ flex-direction:row;
 span{
   font-size: 14px;
   font-weight: bold;
-  padding:8px 16px;
-  color:#4E50F7;
+  padding:0px 16px;
+  color:#4E50F7;line-height: 28px;
 }
 svg{
   display:inline-block;

@@ -171,7 +171,7 @@ const Wrapper = styled.div`
 padding:20px 0;
 position: relative;
 z-index: 9999;
-min-height:100px;
+min-height:50px;
 `;
 const Container = styled.div`
 width:100%;

@@ -1,7 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { Button, Flex, Box, Text } from 'theme-ui';
+
+import styled from "styled-components";
+
+const Box = styled.div`
+
+`;
+const Flex = styled.div`
+
+`;
+const Box = styled.div`
+
+`;
+const Text = styled.label`
+
+`;
+
 
 const WebinarSpecialItem = ({ title, actionLabel, actionURL }) => {
   return (

@@ -4,7 +4,6 @@ import GlobalStyle from './globalStyles';
 const Layout = ({ children }) => {
   return (
     <>
-      <GlobalStyle />
       {children}
     </>
   )

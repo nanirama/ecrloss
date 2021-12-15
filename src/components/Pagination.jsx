@@ -60,7 +60,7 @@ a{
    padding: 5px 16px;
    font-weight: bold;
    display:inline-block;
-   font-size:14px;
+   font-size:18px;
    @media (max-width: 800px) {
     margin-bottom:20px;
 }
@@ -73,6 +73,6 @@ a.active{
 }
 .nextprevbtn{
   background-color:#4E50F7 !important;
-  color:#ffffff !important;
+  color:#ffffff !important;margin-left: 16px;padding: 8px 16px;font-size: 14px;
 }
 `;

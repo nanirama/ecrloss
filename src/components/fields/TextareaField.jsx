@@ -1,7 +1,6 @@
 import React from 'react';
 import { getIn } from 'formik';
-import { Textarea, Text } from 'theme-ui';
-
+import styled from "styled-components";
 export const TextareaField = ({
   field,
   form: { errors, touched },
@@ -15,3 +14,12 @@ export const TextareaField = ({
     </div>
   );
 };
+
+const Textarea = styled.textarea`
+
+`;
+const Text = styled.label`
+
+`;
+
+

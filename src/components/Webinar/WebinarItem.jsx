@@ -86,7 +86,7 @@ export default WebinarItem;
 
 const BoxItem = styled.div`
  width:33.3333%;
- padding:16px;
+ padding:16px;box-sizing:border-box;
  @media (max-width:768px){
   width:50%;
  }
@@ -96,7 +96,7 @@ const BoxItem = styled.div`
  `;
  const Box = styled.div`
  background-color:#fff;height: 100%;
- padding: 32px;
+ padding: 32px;box-sizing:border-box;
  text-align: center;
  min-height: 420px;
  opacity: 1;
@@ -116,7 +116,7 @@ font-weight: bold;
  margin:0 0 16px;
  font-size: 14px;
  text-transform: uppercase;
- padding:1px 16px;
+ padding:4px 16px;
 `;
 const Date = styled.div`
 color:#4E50F7;
@@ -126,7 +126,7 @@ font-weight: 400;
 `;
 const Text = styled.h2`
 color:#7C7A7A;
-font-size: 24px;
+font-size: 24px;margin:0;
 font-weight:400;
 line-height:29px;
 `;

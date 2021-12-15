@@ -51,7 +51,7 @@ h1{
   margin-bottom:20px;
 }
 p{
-  line-height: 16px;
+  line-height: 15px;
   color:#fff;
   font-size: 12px;
 text-align: left;

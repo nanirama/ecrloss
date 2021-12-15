@@ -85,6 +85,7 @@ const LayoutData = ({ ...props }) => {
         }  
     `
   )
+ 
   const {
     logo,
     header_navigation: headerNavigation,

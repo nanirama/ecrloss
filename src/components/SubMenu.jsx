@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
-
 const SubMenu = ({ children, ...props }) => (
   <ul
     {...props}

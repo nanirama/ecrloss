@@ -22,15 +22,15 @@ export default TextBlock;
 
 const Container = styled.div`
 width: 100%;
-max-width: 730px;
+max-width: 700px;
 margin: 64px auto;
-padding:0 15px;
+padding:0 0px 0 32px;box-sizing:border-box;
 @media (max-width: 767px) {
   margin: 40px auto;
 }
 h1{
   font-size:18px;
-  margin-bottom: 32px;
+  margin-bottom: 34px;
   line-height: 1.3;
   color:#3C3C3B;
   @media (max-width: 599px) {
@@ -38,6 +38,6 @@ h1{
   }
 }
 p{
-  font-weight:400 !important;
+  font-weight:400 !important;line-height:1.8;
 }
 `;

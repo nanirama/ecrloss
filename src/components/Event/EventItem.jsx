@@ -95,7 +95,7 @@ EventItem.propTypes = {
 export default EventItem;
 
 const BoxItem = styled.div`
- width:33%;
+width: 33.3333%;box-sizing: border-box;
  padding:16px;
  @media (max-width:850px){
   width:50%;
@@ -110,9 +110,9 @@ const Box = styled.div`
  height: 100%;
  padding: 32px;
  text-align: center;
- min-height: 420px;
+ min-height: 420px;box-sizing: border-box;
  opacity: ${props => props.isPast ? '0.6' : '1.0' };
- box-shadow: rgba(0, 0, 0, 0.17) 0px 10px 10px -5px;
+//  box-shadow: rgba(0, 0, 0, 0.17) 0px 10px 10px -5px;
  @media (max-width:767px){
   width:300px;
   display:inline-block;

@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx, Close } from 'theme-ui';
+import React from 'react';
+
 
 const Menu = ({ isOpen, children, close, ...props }) => (
   <ul

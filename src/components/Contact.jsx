@@ -1,24 +1,29 @@
-/** @jsx jsx */
-
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
-import {
-  jsx,
-  Flex,
-  Box,
-  Text,
-  Close,
-  Input,
-  Textarea,
-  Button,
-  Spinner,
-} from 'theme-ui';
 import { downloadFile } from '../utils/download';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { InputField, TextareaField, SelectField } from './fields';
+const Flex = styled.div`
+
+`;
+const Box = styled.div`
+
+`;
+const Spinner = styled.div`
+
+`;
+const Button = styled.button`
+
+`;
+const Close = styled.button`
+
+`;
+const Text = styled.label`
+
+`;
 
 const ContactFormSchema = Yup.object().shape({
   organisation: Yup.string()

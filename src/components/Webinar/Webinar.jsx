@@ -72,7 +72,7 @@ max-width:1000px;
 margin:0px auto;
 `;
 const Flex = styled.div`
-padding:60px 0 30px 0;
+padding:64px 0 30px 0;
 flex-direction:row;
 display:flex;
   @media (max-width:767px){

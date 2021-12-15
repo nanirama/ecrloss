@@ -42,7 +42,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        "ssr": false,
         "displayName": false,
         "fileName": false,
         "minify": false,
@@ -111,6 +110,23 @@ module.exports = {
         }
       },
     },
+    `gatsby-plugin-preload-fonts`,
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Montserrat",
+              variants: ["300", "400", "500","600","700","800","900"],
+              strategy: 'base64' // 'base64' || 'cdn'
+            },
+          ],
+        },
+        useMinify: true,
+        usePreload: true
+      },
+    },   
     
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

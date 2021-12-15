@@ -37,15 +37,18 @@ const BlogIndex = ({ blogs, basePath, isFirstPage, categories, path }) => {
       )}
       <Blog2>
       <Container as="section" variant="content">
+      
         <Grid2>
           {blogs.map((blog, index) => {
             return isFirstPage && index === 1 ? (
                 <BlogItem blog={blog} basePath={basePath} />
             ) : (
-              <BlogItem key={blog.id} blog={blog} basePath={basePath} />
+              <Item> <BlogItem key={blog.id} blog={blog} basePath={basePath} /></Item> 
             );
           })}
+          
         </Grid2>
+     
       </Container>
       </Blog2>
     </>
@@ -71,7 +74,7 @@ h2{
 `;
 const Container = styled.div`
 width: 100%;
-max-width: 1230px;
+max-width: 1200px;
 margin:0 auto;
 padding:0 15px;
 `;
@@ -105,11 +108,16 @@ font-size: 24px;
 font-weight: 700;
 color: lightgrey;
 text-transform: uppercase;
-margin: 11px 0 11px 0px;
+margin: 16px 0 15px 0px;
 `;
 const Blog2 = styled.div`
-margin:40px 0;
+margin:40px 0 40px 0;
 @media (max-width:800px) {
   margin:0px 0;
 }
+
+`;
+
+const Item = styled.div`
+margin-top:20px;
 `;

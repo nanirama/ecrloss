@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Text } from 'theme-ui';
+import styled from "styled-components";
 
 export const InputField = ({ field, form: { errors, touched }, ...props }) => {
   const errorMessage = touched[field.name] && errors[field.name];
@@ -10,3 +10,12 @@ export const InputField = ({ field, form: { errors, touched }, ...props }) => {
     </div>
   );
 };
+
+const Input = styled.input`
+
+`;
+const Text = styled.label`
+
+`;
+
+

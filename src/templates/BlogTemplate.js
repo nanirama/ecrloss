@@ -47,6 +47,7 @@ const BlogTemplate = ({ data, pageContext, location }) => {
       title={title}
       author={author}
       category={category}
+    
         image={image}
         basePath={pageContext.basePath}
       />
@@ -204,7 +205,9 @@ p{
     &:hover{
       color:#4E50F7;
     }
+   
 }
+
 
 }
 `;

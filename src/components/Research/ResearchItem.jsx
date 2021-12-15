@@ -33,5 +33,5 @@ ResearchItem.propTypes = {
 export default ResearchItem;
 
 const Box = styled.div`
-padding:16px;
+padding:16px 16px 15px 16px;
 `;

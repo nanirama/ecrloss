@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
+import React from 'react';
 
 const MenuItem = ({ children, vertical = false, dropdown = false, ...props }) => (
   <li

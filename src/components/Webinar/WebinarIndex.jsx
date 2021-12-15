@@ -73,7 +73,7 @@ const Container = styled.div`
 const Heading = styled.h1`
 font-size: 48px;
 font-weight: bold;
-line-height: 1.3;
+line-height: 1.3;margin-bottom: 8px;
 text-transform: uppercase;
 text-align: center;
   @media (max-width:800px){
@@ -85,7 +85,7 @@ text-align: center;
 `;
 const Text = styled.p`
 line-height:22px;
-margin: 8px auto 0px;
+margin: 0px auto 0px;
 color:#7C7A7A;
 max-width: 800px;
 font-weight: 400;

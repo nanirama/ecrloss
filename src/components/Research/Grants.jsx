@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
-
+import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"

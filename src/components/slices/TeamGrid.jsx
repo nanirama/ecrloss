@@ -54,7 +54,7 @@ export default TeamGrid;
 
 const Container = styled.div`
 width: 100%;
-max-width: 930px;
+max-width: 900px;
 margin: 64px auto;
 padding:0 15px;
 @media (max-width:767px) {
@@ -62,7 +62,7 @@ padding:0 15px;
 }
 h1{
   font-size: 32px;
-  line-height:40px;
+  line-height:40px; margin-bottom:14px;
   color:#3C3C3B;
   @media (max-width:479px) {
     font-size: 28px;
@@ -75,14 +75,14 @@ list-style:none;
 padding:0;
 text-align:center;
 display:flex;
-flex-wrap:wrap;
+flex-wrap:wrap;margin: 0 -32px;
 
 @media (max-width:767px) {
   justify-content: center;
 }
 li{
-  width:170px;
-  margin:25px;
+  width:176px;
+  margin:32px;
   @media only screen and (min-width:600px) and (max-width:710px){
     width:220px;
   }
@@ -93,9 +93,9 @@ li{
 a{
   font-size: 20px;
   line-height:24px;
-  font-weight: bold;
+  font-weight: bold;display: inline-block;
   color:#000;
-  margin:16px 0 0 0;
+  margin:0px 0 0 0;
   @media (max-width:479px) {
     font-size: 16px;
     line-height:20px;
@@ -114,7 +114,7 @@ p{
 }
 `;
 const AuthorImage = styled.div`
-justify-content: center;
+justify-content: center; margin-bottom:21px;
 display: flex;
 img{
   border-radius:50%;

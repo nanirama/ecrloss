@@ -68,7 +68,7 @@ img{
 `;
 const Container = styled.div`
 width: 100%;
-max-width: 930px;
+max-width: 900px;
 margin: 0 auto;
 padding:0 15px;
 `;
@@ -90,26 +90,25 @@ h1{
   font-size:32px;
   line-height:40px;
   color:#fff;
-  margin:16px 0 32px 0;
+  margin:8px 0 30px 0;
   @media (max-width: 600px) {
     font-size:28px;
     line-height:36px;
-    margin:16px 0 20px 0;
+    margin:6px 0 15px 0;
   }
 
 }
 p{
   color:#fff;
   position:relative;
-  padding-top:16px;
+  padding-top:15px; margin-bottom:36px;
   &:before{
     content:'';
     position:absolute;
     width:100%;
     height:1px;
     background-color:#fff;
-    top:0;
-
+    top:2px;
   }
 }
 `;
@@ -118,6 +117,6 @@ background-color: #4E50F7;
 text-transform: uppercase;
 color:#fff;
 border:none;
-padding:8px 32px;
+padding:8px 32px; 
 font-size: 16px;
 `;
