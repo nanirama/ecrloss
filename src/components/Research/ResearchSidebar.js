@@ -159,23 +159,19 @@ const SideBarContent = ({
                 <input type="hidden" name="bot-field" />
                 <input type="hidden" name="form-name" value="contact" />
                 <input type="hidden" name="page" />
-       
                 <Field
                   id="name"
                   name="name"
                   type="text"
                   placeholder="Name"
                   component={InputField}
-                  className="inputwrap"
                 />
-                
                 <Field
                   id="organisation"
                   name="organisation"
                   type="text"
                   placeholder="Organisation"
                   component={InputField}
-                  className="inputwrap"
                 />
                 <Field
                   id="email"
@@ -183,13 +179,11 @@ const SideBarContent = ({
                   type="email"
                   placeholder="Email"
                   component={InputField}
-                  className="inputwrap"
                 />
                 <Field
                   id="industry"
                   name="industry"
                   component={SelectField}
-                  className="inputwrapselect"
                 >
                   <option value="" disabled hidden>Select industry sector</option>
                   <option value="Retailer">Retailer</option>
@@ -306,9 +300,6 @@ const SideBarMainContent = styled.div`
     @media (max-width:400px) {
       padding:0px 20px !important;
     }
-`;
-const FieldWrap = styled.div`
-
 `;
 const Flex = styled.div`
 width:100%;
