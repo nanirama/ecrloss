@@ -93,7 +93,7 @@ const Research = (props) => {
        
         { abstract.length>0 && <Abstract abstract={abstract}/>}   
         <RichText render={content.richText} htmlSerializer={htmlSerializer} />
-      <div dangerouslySetInnerHTML={{ __html: content.html }} htmlSerializer={htmlSerializer} />
+      {/* <div dangerouslySetInnerHTML={{ __html: content.html }} htmlSerializer={htmlSerializer} /> */}
       </Content>
     </BottomContent>
     </Container>
