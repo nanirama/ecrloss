@@ -1,24 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import shortid from 'shortid';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import ArrowDown from '../../assets/icons/ArrowDown'
 
 import styled from "styled-components";
 
 const Dropdown = ({ items, path }) => {
   const selected = items.find((item) => item.path === path);
-
   return (
     <Flex>
       <Text>Browse</Text>
-      <div
-        sx={{
-          position: 'relative',
-          '&:hover .dropdown-content': {
-            display: 'block',
-          },
-        }}
-      >
+      <FlexDiv>
         <span>
           {selected ? selected.name : 'Everything'}
         </span>
@@ -32,7 +24,7 @@ const Dropdown = ({ items, path }) => {
             </li>
           ))}
         </Links>
-      </div>
+      </FlexDiv>
       <ArrowDown />
     </Flex>
   );
@@ -54,6 +46,11 @@ span{
 svg{
   display:inline-block;
   margin-top:10px;
+}
+`;
+const FlexDiv = styled.div`
+&:hover .dropdown-content {
+  display: block;
 }
 `;
 

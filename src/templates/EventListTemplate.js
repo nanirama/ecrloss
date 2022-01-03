@@ -18,16 +18,16 @@ const EventListTemplate = ({ data, pageContext, location }) => {
   const events = eventsData.map((event) => {
     return event.node
   });
-  let pastEvents = [];
-  let futureEvens = []
-  eventsData.map((event) => {
-    let isPast = moment() > moment(event.node.data.start_date);
-    if(isPast){
-      pastEvents.push(event.node)
-    } else {
-      futureEvens.push(event.node)
-    }
-  });
+  // let pastEvents = [];
+  // let futureEvens = []
+  // eventsData.map((event) => {
+  //   let isPast = moment() > moment(event.node.data.start_date);
+  //   if(isPast){
+  //     pastEvents.push(event.node)
+  //   } else {
+  //     futureEvens.push(event.node)
+  //   }
+  // });
 
 
   if (!events) return null;

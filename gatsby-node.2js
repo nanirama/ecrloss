@@ -23,7 +23,6 @@ exports.createPages = async ({ graphql, actions }) => {
     page: path.resolve(templatesDir, 'PageTemplate.js'),
     research: path.resolve(templatesDir, 'ResearchTemplate.js'),
     researchList: path.resolve(templatesDir, 'ResearchListTemplate.js'),
-    researchcategory: path.resolve(templatesDir, 'ResearchCategoryTemplate.js'),
     blog: path.resolve(templatesDir, 'BlogTemplate.js'),
     blogList: path.resolve(templatesDir, 'BlogListTemplate.js'),
     category: path.resolve(templatesDir, 'CategoryTemplate.js'),
@@ -32,7 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
     person: path.resolve(templatesDir, 'PersonTemplate.js'),
     event: path.resolve(templatesDir, 'EventTemplate.js'),
     eventList: path.resolve(templatesDir, 'EventListTemplate.js'),
-    eventFuturePastList: path.resolve(templatesDir, 'EventFuturePastListTemplate.js'),
+    eventFutureList: path.resolve(templatesDir, 'EventFutureListTemplate.js'),
     eventPastList: path.resolve(templatesDir, 'EventPastListTemplate.js'),
     question: path.resolve(templatesDir, 'QuestionTemplate.js'),
     questionList: path.resolve(templatesDir, 'QuestionListTemplate.js'),
@@ -68,62 +67,22 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        Events: allPrismicEvent(sort: { fields: data___start_date, order: DESC }) {
-          edges {
-            node {
-              id
-              uid
-              data {
-                title {
-                  text
-                }
-                description
-                start_date
-                end_date
-                custom_date
-                organiser
-                city
-                register_label
-                register_url {
-                  url
-                  uid
-                  type
-                  target
-                }
-                category {
-                  uid
-                  document {
-                    ... on PrismicCategory {
-                      data {
-                        color
-                        name
-                      }
-                    }
-                  }
+        Events: allPrismicEvent {
+            edges {
+              node {
+                uid
+                data {
+                  startDate: start_date
                 }
               }
             }
-          }
         }
         Research: allPrismicResearch {
-          edges {
-            node {
-              uid
-              data {
-                category {
-                  uid
-                  document {
-                    ... on PrismicCategory {
-                      data {
-                        color
-                        name
-                      }
-                    }
-                  }
-                }
+            edges {
+              node {
+                uid
               }
             }
-          }
         }
         Questions: allPrismicQuestion {
             edges {
@@ -244,34 +203,33 @@ exports.createPages = async ({ graphql, actions }) => {
     const events = data.Events.edges;
 
     const PastEEvents = events.filter((item)=>{
-      let EventMoment = moment() > moment(item.node.data.start_date);
+      let EventMoment = moment() > moment(item.node.data.startDate);
       if(EventMoment===true)
       {
         return item;
       }
     });
     const FutureEvents = events.filter((item)=>{
-      let EventMoment = moment() > moment(item.node.data.start_date);
+      let EventMoment = moment() > moment(item.node.data.startDate);
       if(EventMoment===false)
       {
         return item;
       }
     });
-
     const fposts = _.cloneDeep(FutureEvents);
     const numfPages = Math.ceil(fposts.length / postsPerPage)
     Array.from({ length: numfPages }).forEach((_, i) => {
       createPage({
         path: `/event/future/${i === 0 ? "" : i + 1}`,
-        component: templates.eventFuturePastList,
+        component: templates.eventFutureList,
         context: {
-          basePath: '/event/future/',
+          basePath: '/event',
           paginationPath: '/event/future/',
           limit: postsPerPage,
           skip: i * postsPerPage,
           numPages: numfPages,
           currentPage: i + 1,
-          data : FutureEvents.slice(i*postsPerPage,postsPerPage)
+          data : fposts.slice(i*postsPerPage,postsPerPage)
         },
       })
     });
@@ -281,18 +239,58 @@ exports.createPages = async ({ graphql, actions }) => {
     Array.from({ length: numpPages }).forEach((_, i) => {
       createPage({
         path: `/event/past/${i === 0 ? "" : i + 1}`,
-        component: templates.eventFuturePastList,
+        component: templates.eventFutureList,
         context: {
-          basePath: '/event/past/',
+          basePath: '/event',
           paginationPath: '/event/past/',
           limit: postsPerPage,
           skip: i * postsPerPage,
-          numPages: numpPages,
+          numPages: numfPages,
           currentPage: i + 1,
-          data : PastEEvents.slice(i*postsPerPage,(i*postsPerPage)+postsPerPage)
+          data : pposts.slice(i*postsPerPage,postsPerPage)
         },
       })
     });
+
+
+    // paginate({
+    //   createPage, 
+    //   items: PastEEvents,
+    //   itemsPerPage: postsPerPage,
+    //   pathPrefix: '/event/past',
+    //   component: templates.eventList,
+    //   context: {
+    //     basePath: '/event',
+    //     paginationPath: '/event/past',
+    //     Todaydate
+    //   },
+    // });  
+
+    // paginate({
+    //   createPage,
+    //   items: FutureEvents,
+    //   itemsPerPage: postsPerPage,
+    //   pathPrefix: '/event/future',
+    //   component: templates.eventFutureList,
+    //   context: {
+    //     basePath: '/event',
+    //     paginationPath: '/event/future',
+    //     currentDate: new Date()
+    //   },
+    // });  
+
+    // Array.from({ FutureEvents.length }).forEach((_, i) => {
+    //   createPage({
+    //     path: `/blog/${i === 0 ? "" : i + 1}`,
+    //     blogTemplate,
+    //     // Context is passed to the page so we can skip the required amount of posts on each page.
+    //     context: {
+    //       skip: i * pageSize,
+    //       currentPage: i + 1,
+    //       pageSize,
+    //     },
+    //   });
+    // });
 
     paginate({
       createPage,
@@ -315,6 +313,33 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
     });
+    // if(pastEvents.length>0){
+    //   paginate({
+    //     createPage,
+    //     items: pastEvents,
+    //     itemsPerPage: postsPerPage,
+    //     pathPrefix: '/event/past',
+    //     component: templates.eventList,
+    //     context: {
+    //       basePath: '/event',
+    //       paginationPath: '/event/past',
+    //     },
+    //   });  
+    // }
+    // if(futureEvents.length>0){
+    //   paginate({
+    //     createPage,
+    //     items: futureEvents,
+    //     itemsPerPage: postsPerPage,
+    //     pathPrefix: '/event/future',
+    //     component: templates.eventList,
+    //     context: {
+    //       basePath: '/event',
+    //       paginationPath: '/event/future',
+    //     },
+    //   });  
+    // }
+    
     
 
     const webinars =  data.Webinars.edges;
@@ -420,7 +445,19 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   
     const researchPages =data.Research.edges;
-    let researchCategories = [];
+
+    paginate({
+      createPage,
+      items: researchPages,
+      itemsPerPage: postsPerPage,
+      pathPrefix: '/research',
+      component: templates.researchList,
+      context: {
+        basePath: '/research',
+        paginationPath: '/research',
+      },
+    });
+
     researchPages.forEach(({ node }) => {
       let pageURL = `research/${node.uid}`;
   
@@ -431,51 +468,7 @@ exports.createPages = async ({ graphql, actions }) => {
           uid: node.uid,
         },
       });
-
-      
-      _.each(researchPages, (item) => {
-        if (_.get(item, 'node.data.category.uid')) {
-          researchCategories = researchCategories.concat(item.node.data.category);
-        }
-      });
     });
-    researchCategories = _.uniqWith(researchCategories, _.isEqual);
-    paginate({
-      createPage,
-      items: researchPages,
-      itemsPerPage: postsPerPage,
-      pathPrefix: '/research',
-      component: templates.researchList,
-      context: {
-        basePath: '/research',
-        paginationPath: '/research',
-        categories: researchCategories,
-      },
-    });
-
-    researchCategories.forEach((cat) => {
-      const researchesWithCat = researchPages.filter(
-        (item) =>
-          item.node.data.category && item.node.data.category.uid === cat.uid
-      );
-      const categoryPath = `research/${cat.uid}`;
-  
-      paginate({
-        createPage,
-        items: researchesWithCat,
-        itemsPerPage: postsPerPage,
-        pathPrefix: categoryPath,
-        component: templates.researchcategory,
-        context: {
-          uid: cat.uid,
-          basePath: '/research',
-          paginationPath: categoryPath,
-          categories: researchCategories,
-        },
-      });
-    });
-
-    
   
 
 };

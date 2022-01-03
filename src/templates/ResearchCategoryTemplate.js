@@ -7,16 +7,14 @@ import SEO from '../components/SEO';
 import ResearchIndex from '../components/Research/ResearchIndex';
 import Pagination from '../components/Pagination';
 
-const ResearchListTemplate = ({ data, pageContext, path, location }) => {
-  const {
-    allPrismicResearch: { edges: researchesData },
-  } = data;
+const ResearchCategoryTemplate = ({ data, pageContext, path, location }) => {
+  const { allPrismicResearch } = data;
 
   const { basePath, humanPageNumber, categories } = pageContext;
 
-  const researches = researchesData.map((research) => research.node);
+  const researches = allPrismicResearch.edges.map((research) => research.node);
 
-  
+  console.log('Page content', categories)
   const normalizedCats = categories.map((cat) => ({
     path: `${basePath}/${cat.uid}`,
     name: cat.document.data.name,
@@ -43,15 +41,16 @@ const ResearchListTemplate = ({ data, pageContext, path, location }) => {
   );
 };
 
-ResearchListTemplate.propTypes = {
+ResearchCategoryTemplate.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default ResearchListTemplate;
+export default ResearchCategoryTemplate;
 
 export const data = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query($uid: String!, $skip: Int!, $limit: Int!) {
     allPrismicResearch(
+      filter: {data: {category: {uid: {eq: $uid}}}}
       sort: { fields: last_publication_date, order: DESC }
       skip: $skip
       limit: $limit

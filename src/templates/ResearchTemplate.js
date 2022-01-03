@@ -25,6 +25,8 @@ const ResearchTemplate = ({ data, location }) => {
     (item) => item.type === 'heading2' || item.type === 'heading3'
   );
 
+  console.log('All Columns',tocData)
+
   return (
     <Layout location={location}>
       <SEO
@@ -68,9 +70,9 @@ export const query = graphql`
         }
         subtitle
         content {
+          richText
           html
           raw
-          richText
         }
         body {
           ... on PrismicResearchDataBodyAbstractMlang {

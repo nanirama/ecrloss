@@ -4,6 +4,12 @@ import slugify from '../../utils/slugify';
 import styled from "styled-components";
 
 const TOC = ({ data }) => {
+  const SummaryDoc = {
+    "type": "heading2",
+    "text": "Abstract"
+  }
+  data.unshift(SummaryDoc);
+  console.log('new data', data)
   return(
   <Links>
     {data.map((item) => (

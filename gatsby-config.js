@@ -93,21 +93,7 @@ module.exports = {
       options: {
         repositoryName: process.env.PRISMIC_REPO_NAME,
         accessToken: process.env.MAPBOX_PUBLIC_TOKEN,
-        schemas: {
-          home: require('./src/schemas/home.json'),
-          page: require('./src/schemas/page.json'),
-          person: require('./src/schemas/person.json'),
-          research: require('./src/schemas/research.json'),
-          layout: require('./src/schemas/layout.json'),
-          meganav: require('./src/schemas/meganav.json'),
-          meganavitem: require('./src/schemas/meganavitem.json'),
-          organisation: require('./src/schemas/organisation.json'),
-          category: require('./src/schemas/category.json'),
-          blog: require('./src/schemas/blog.json'),
-          webinar: require('./src/schemas/webinar.json'),
-          event: require('./src/schemas/event.json'),
-          question: require('./src/schemas/question.json'),
-        }
+        customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,       
       },
     },
     `gatsby-plugin-preload-fonts`,

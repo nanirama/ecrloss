@@ -7,9 +7,9 @@ import Dropdown from '../Blog/Dropdown';
 
 const EventIndex = ({ events, basePath }) => {
   const categoriesList = [
-    { name: 'Everything', path: basePath },
-    { name: 'Past Events', path: basePath+'/past' },
-    { name: 'Future Events', path: basePath+'/future' },
+    { name: 'Everything', path: '/event' },
+    { name: 'Past Events', path: '/event/past/' },
+    { name: 'Future Events', path: '/event/future/' },
   ];
   return (
     <Box>

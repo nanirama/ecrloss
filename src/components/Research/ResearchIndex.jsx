@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ResearchItem from './ResearchItem';
+import Dropdown from '../Blog/Dropdown'
+
 
 import styled from "styled-components";
 
-const ResearchIndex = ({ data, basePath }) => {
+const ResearchIndex = ({ data, basePath, categories, path }) => {
   if (!data) return null;
   return (
     <Box as="section">
+      <Container>
+        <Dropdown items={categories} path={path} />
+      </Container>
       <Container>
         <Heading>
           Research papers
