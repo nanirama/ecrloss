@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import Paginate from '../components/blog/Paginate'
+import Paginate from '../components/Blog/Paginate'
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { EventIndex } from '../components/Event';
