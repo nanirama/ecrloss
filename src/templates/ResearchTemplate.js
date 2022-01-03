@@ -70,7 +70,6 @@ export const query = graphql`
         }
         subtitle
         content {
-          richText
           html
           raw
         }
