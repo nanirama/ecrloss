@@ -1,198 +1,202 @@
 {
-  "Main": {
-    "title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
-        "label": "Title"
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "Title"
       }
     },
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "Slug"
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Slug"
       }
     },
-    "subtitle": {
-      "type": "Text",
-      "config": {
-        "label": "Subtitle"
+    "subtitle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Subtitle"
       }
     },
-    "cover": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Cover"
+    "category" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "document",
+        "customtypes" : [ "category" ],
+        "label" : "Category"
       }
     },
-    "file": {
-      "type": "Link",
-      "config": {
-        "select": "media",
-        "label": "File"
+    "cover" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Cover"
       }
     },
-    "content": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
-        "allowTargetBlank": true,
-        "label": "Content"
+    "file" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "media",
+        "label" : "File"
       }
     },
-    "body": {
-      "type": "Slices",
-      "fieldset": "Slice zone",
-      "config": {
-        "labels": null,
-        "choices": {
-          "abstract_mlang": {
-            "type": "Slice",
-            "fieldset": "Abstract Mlang",
-            "description": "Abstract Multi Lang",
-            "icon": "border_all",
-            "display": "list",
-            "non-repeat": {
-              "englsih": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "allowTargetBlank": true,
-                  "label": "Contnet Englsih"
+    "content" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "Content"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : null,
+        "choices" : {
+          "abstract_mlang" : {
+            "type" : "Slice",
+            "fieldset" : "Abstract Mlang",
+            "description" : "Abstract Multi Lang",
+            "icon" : "border_all",
+            "display" : "list",
+            "non-repeat" : {
+              "englsih" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "Contnet Englsih"
                 }
               },
-              "french": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "allowTargetBlank": true,
-                  "label": "Content French"
+              "french" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "Content French"
                 }
               },
-              "spanish": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "allowTargetBlank": true,
-                  "label": "Content Spanish"
+              "spanish" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "Content Spanish"
                 }
               },
-              "german": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "allowTargetBlank": true,
-                  "label": "Content German"
+              "german" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "Content German"
                 }
               },
-              "dutch": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "allowTargetBlank": true,
-                  "label": "Content Dutch"
+              "dutch" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "Content Dutch"
                 }
               }
             },
-            "repeat": {}
+            "repeat" : { }
           }
         }
       }
     }
   },
-  "Meta": {
-    "authors_box_title": {
-      "type": "Text",
-      "config": {
-        "label": "Authors Box Title"
+  "Meta" : {
+    "authors_box_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Authors Box Title"
       }
     },
-    "authors": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "author": {
-            "type": "Link",
-            "config": {
-              "select": "document",
-              "customtypes": [
-                "person"
-              ],
-              "label": "Author"
+    "authors" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "author" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "person" ],
+              "label" : "Author"
             }
           }
         },
-        "label": "Authors"
+        "label" : "Authors"
       }
     },
-    "grant_providers_box_title": {
-      "type": "Text",
-      "config": {
-        "label": "Grant Providers Box Title"
+    "grant_providers_box_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Grant Providers Box Title"
       }
     },
-    "grant_providers": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "organisation": {
-            "type": "Link",
-            "config": {
-              "select": "document",
-              "customtypes": [
-                "organisation"
-              ],
-              "label": "Organisation"
+    "grant_providers" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "organisation" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "organisation" ],
+              "label" : "Organisation"
             }
           }
         },
-        "label": "Grant providers"
+        "label" : "Grant providers"
       }
     },
-    "related_papers_box_title": {
-      "type": "Text",
-      "config": {
-        "label": "Related Papers Box Title"
+    "related_papers_box_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Related Papers Box Title"
       }
     },
-    "related_papers": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "paper": {
-            "type": "Link",
-            "config": {
-              "allowTargetBlank": true,
-              "label": "Paper",
-              "select": null
+    "related_papers" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "paper" : {
+            "type" : "Link",
+            "config" : {
+              "allowTargetBlank" : true,
+              "label" : "Paper",
+              "select" : null
             }
           }
         },
-        "label": "Related papers"
+        "label" : "Related papers"
       }
     }
   },
-  "SEO & Social": {
-    "meta_title": {
-      "type": "Text",
-      "config": {
-        "label": "Meta Title"
+  "SEO & Social" : {
+    "meta_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Title"
       }
     },
-    "meta_description": {
-      "type": "Text",
-      "config": {
-        "label": "Meta description"
+    "meta_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta description"
       }
     },
-    "social_card": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Social Card"
+    "social_card" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Social Card"
       }
     }
   }

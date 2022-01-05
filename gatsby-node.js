@@ -440,6 +440,7 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     });
     researchCategories = _.uniqWith(researchCategories, _.isEqual);
+    console.log('Research Categories',researchCategories)
     paginate({
       createPage,
       items: researchPages,

@@ -27,6 +27,7 @@ const ResearchListTemplate = ({ data, pageContext, path, location }) => {
     ...normalizedCats,
   ];
 
+
   if (!researches) return null;
 
   return (

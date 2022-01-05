@@ -78,7 +78,5 @@ hr{ border:1px solid #4E50F7; width:100%;margin:64px 0;}
   p{font-size:15px;line-height:25px;margin-bottom:15px;}
 }
 
-.dropdown-menu {border:1px solid red !important}
-
 `;
 export default GlobalStyle;
