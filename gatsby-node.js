@@ -265,7 +265,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/event/future/${i === 0 ? "" : i + 1}`,
         component: templates.eventFuturePastList,
         context: {
-          basePath: '/event/future/',
+          basePath: '/event',
           paginationPath: '/event/future/',
           limit: postsPerPage,
           skip: i * postsPerPage,
@@ -283,7 +283,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/event/past/${i === 0 ? "" : i + 1}`,
         component: templates.eventFuturePastList,
         context: {
-          basePath: '/event/past/',
+          basePath: '/event',
           paginationPath: '/event/past/',
           limit: postsPerPage,
           skip: i * postsPerPage,

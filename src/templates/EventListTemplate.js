@@ -13,7 +13,7 @@ const EventListTemplate = ({ data, pageContext, location }) => {
     allPrismicEvent: { edges: eventsData },
   } = data;
 
-  const { basePath, humanPageNumber } = pageContext;
+  const { basePath, paginationPath, humanPageNumber } = pageContext;
 
   const events = eventsData.map((event) => {
     return event.node
@@ -35,7 +35,7 @@ const EventListTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
       <SEO pathname={location.pathname} title="Events" />
-      <EventIndex events={events} basePath={basePath} />
+      <EventIndex events={events} basePath={basePath} path={paginationPath} />
       <Pagination data={pageContext} />
     </Layout>
   );

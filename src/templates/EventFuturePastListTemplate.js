@@ -15,7 +15,7 @@ console.log('Data Content', pageContext)
 
   
 
-  const { basePath, humanPageNumber, currentPage, numPages, data } = pageContext;
+  const { basePath, paginationPath,humanPageNumber, currentPage, numPages, data } = pageContext;
   console.log('pageContext', data)
   const events = data.map((event) => {
     return event.node
@@ -40,7 +40,7 @@ console.log('Data Content', pageContext)
   return (
     <Layout location={location}>
       <SEO pathname={location.pathname} title="Events" />
-      <EventIndex events={events} basePath={basePath} />
+      <EventIndex events={events} basePath={basePath} path={paginationPath} />
       <Pagination data={pageContext} />
       {numPages>1 && <Paginate currentPage={currentPage} numPages={numPages} path={basePath} />  }
     </Layout>
