@@ -6,6 +6,7 @@ import ArrowDown from '../../assets/icons/ArrowDown'
 import styled from "styled-components";
 
 const Dropdown = ({ items, path }) => {
+  console.log('Selected Path', path)
   const selected = items.find((item) => item.path === path);
   return (
     <Flex>

@@ -283,7 +283,7 @@ exports.createPages = async ({ graphql, actions }) => {
         (item) =>
           item.node.data.category && item.node.data.category.uid === cat.uid
       );
-      const categoryPath = `event/${cat.uid}`;
+      const categoryPath = `/event/${cat.uid}`;
   
       paginate({
         createPage,

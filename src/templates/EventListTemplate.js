@@ -36,6 +36,8 @@ const EventListTemplate = ({ data, pageContext, path, location }) => {
   }));
   const categoriesList = [
     { name: 'Everything', path: basePath },
+    { name: 'Past Events', path:  basePath+'/past/' },
+    { name: 'Future Events', path: basePath+'/future/' },
     ...normalizedCats,
   ];
 
