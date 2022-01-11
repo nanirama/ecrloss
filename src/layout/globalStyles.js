@@ -13,7 +13,7 @@ h4{ font-size:18px;line-height:26px; margin-bottom:16px;}
 
 p{font-family: 'Montserrat', sans-serif; font-size:18px;line-height:30px;font-weight: 400;margin:0;margin-bottom:32px;}
 
-hr{ border:1px solid #4E50F7; width:100%;margin:64px 0;}
+hr{ border:1px solid #4E50F7; width:100%;margin:64px 0;box-sizing: border-box;}
 
 .svg-icon{ width:38px;height:25px;color:#4E50F7;float:right;}
 .svg-icon path{fill:#4E50F7;}

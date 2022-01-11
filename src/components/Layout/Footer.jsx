@@ -120,10 +120,10 @@ const query = graphql`
 const Wrapper = styled.div`
 `;
 const Container = styled.div`
-width: 100%;
 max-width: 1200px;
 margin:0 auto;
-padding:0 15px;
+padding:0px;
+box-sizing: border-box;
 `;
 const Grid = styled.div`
 display: grid;
@@ -137,6 +137,7 @@ margin:40px 0 0px 0;
  @media (max-width: 991px) {
    flex-direction: column-reverse;
    display: flex;
+   padding:16px 16px 32px;
  }
 `;
 const Item = styled.div`
@@ -145,13 +146,18 @@ const Heading = styled.h4`
 color:#4E50F7;
 `;
 const FooterLinks = styled.div`
-width:46%;
+width:44.5%;
 float:left;
-padding:0 10px;
+padding:0 16px;
 margin-bottom:30px;
+@media only screen and (min-width:992px) and (max-width:1200px){
+  width:43%;
+}
+@media (max-width: 991px) {
+  padding:0 8px;
+}
  @media (max-width: 599px) {
    width:100%;
-   padding:0;
    margin-bottom:15px;
  }
  ul{
@@ -178,6 +184,10 @@ const Links = styled.ul`
 list-style: none;
 padding: 0;
 margin: 0 0 64px 0;
+@media only screen and (min-width:992px) and (max-width:1200px){
+padding:0 15px 0 0;
+}
+
  @media (max-width: 991px) {
    margin: 0 0 30px 0;
  }
@@ -198,7 +208,7 @@ p {
 font-size: 12px;
 line-height:20px;
 color:#D1D1D1;
-font-weight:bold;
+font-weight:300;
 margin:0;
 padding-right:40px;
 }
@@ -214,8 +224,8 @@ padding:8px 32px;
 color:#fff;
 background-color: #4E50F7;
 font-size: 16px;
-line-height:22px;
-font-weight:600;
+line-height:20px;
+font-weight:400;
 border:none;
 text-transform:uppercase;
 display: inline-block;

@@ -34,6 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
     eventList: path.resolve(templatesDir, 'EventListTemplate.js'),
     eventFuturePastList: path.resolve(templatesDir, 'EventFuturePastListTemplate.js'),
     eventPastList: path.resolve(templatesDir, 'EventPastListTemplate.js'),
+    eventCategoryList: path.resolve(templatesDir, 'EventCategoryListTemplate.js'),
     question: path.resolve(templatesDir, 'QuestionTemplate.js'),
     questionList: path.resolve(templatesDir, 'QuestionListTemplate.js'),
     faq: path.resolve(templatesDir, 'FaqTemplate.js'),
@@ -242,7 +243,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     const events = data.Events.edges;
-
+    let eventCategories = [];
     const PastEEvents = events.filter((item)=>{
       let EventMoment = moment() > moment(item.node.data.start_date);
       if(EventMoment===true)
@@ -256,7 +257,61 @@ exports.createPages = async ({ graphql, actions }) => {
       {
         return item;
       }
+    });   
+
+    
+    events.forEach(({ node }) => {
+      let eventURL = `event/${node.uid}`;
+      createPage({
+        path: eventURL,
+        component: templates.event,
+        context: {
+          uid: node.uid,
+        },
+      });
+      _.each(events, (item) => {
+        if (_.get(item, 'node.data.category.uid')) {
+          eventCategories = eventCategories.concat(item.node.data.category);
+        }
+      });
     });
+
+    eventCategories = _.uniqWith(eventCategories, _.isEqual);
+    //console.log('Research Categories',researchCategories)
+    eventCategories.forEach((cat) => {
+      const eventWithCat = events.filter(
+        (item) =>
+          item.node.data.category && item.node.data.category.uid === cat.uid
+      );
+      const categoryPath = `event/${cat.uid}`;
+  
+      paginate({
+        createPage,
+        items: eventWithCat,
+        itemsPerPage: postsPerPage,
+        pathPrefix: categoryPath,
+        component: templates.eventCategoryList,
+        context: {
+          uid: cat.uid,
+          basePath: '/event',
+          paginationPath: categoryPath,
+          categories: eventCategories,
+        },
+      });
+    });
+
+    paginate({
+      createPage,
+      items: events,
+      itemsPerPage: postsPerPage,
+      pathPrefix: '/event',
+      component: templates.eventList,
+      context: {
+        basePath: '/event',
+        paginationPath: '/event',
+        categories: eventCategories,
+      },
+    });  
 
     const fposts = _.cloneDeep(FutureEvents);
     const numfPages = Math.ceil(fposts.length / postsPerPage)
@@ -271,6 +326,7 @@ exports.createPages = async ({ graphql, actions }) => {
           skip: i * postsPerPage,
           numPages: numfPages,
           currentPage: i + 1,
+          categories: eventCategories,
           data : FutureEvents.slice(i*postsPerPage,postsPerPage)
         },
       })
@@ -289,31 +345,10 @@ exports.createPages = async ({ graphql, actions }) => {
           skip: i * postsPerPage,
           numPages: numpPages,
           currentPage: i + 1,
+          categories: eventCategories,
           data : PastEEvents.slice(i*postsPerPage,(i*postsPerPage)+postsPerPage)
         },
       })
-    });
-
-    paginate({
-      createPage,
-      items: events,
-      itemsPerPage: postsPerPage,
-      pathPrefix: '/event',
-      component: templates.eventList,
-      context: {
-        basePath: '/event',
-        paginationPath: '/event',
-      },
-    });  
-    events.forEach(({ node }) => {
-      let eventURL = `event/${node.uid}`;
-      createPage({
-        path: eventURL,
-        component: templates.event,
-        context: {
-          uid: node.uid,
-        },
-      });
     });
     
 
@@ -440,7 +475,7 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     });
     researchCategories = _.uniqWith(researchCategories, _.isEqual);
-    console.log('Research Categories',researchCategories)
+    //console.log('Research Categories',researchCategories)
     paginate({
       createPage,
       items: researchPages,

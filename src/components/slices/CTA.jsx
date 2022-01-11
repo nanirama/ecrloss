@@ -45,6 +45,7 @@ max-width: 550px;
 margin: 128px auto;
 padding:0 15px;
 text-align:center;
+box-sizing: border-box;
 @media (max-width: 1024px) {
   margin: 70px auto;
 }

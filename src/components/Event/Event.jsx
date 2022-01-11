@@ -127,7 +127,7 @@ margin: 64px 0px 0px;
 flex-direction: row;
 min-width: 0px;
 display: flex;
-@media (max-width:768px){
+@media (max-width:900px){
   flex-direction: column;
 }
 `;

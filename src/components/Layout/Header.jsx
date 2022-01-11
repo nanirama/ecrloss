@@ -115,7 +115,7 @@ const Header = ({ data }) => {
                  </Link>
               </Button>
            </Nav>
-      </Container>
+        </Container>
       </Wrapper>
       {/* <Flex>
           <Menu isOpen={isOpen} close={handleClick}>
@@ -168,18 +168,20 @@ Header.propTypes = {
 
 export default Header;
 const Wrapper = styled.div`
-padding:20px 0;
+padding:20px 15px;
 position: relative;
 z-index: 9999;
+
 // min-height:100px;
 `;
 const Container = styled.div`
 width:100%;
-max-width: 1230px;
+max-width: 1200px;
 margin: 0 auto;
-padding:0 15px;
+padding:0px;
 display:flex;
 justify-content:space-between;
+box-sizing: border-box;
 `;
 const Nav = styled.nav`
 padding: 0 0px;
@@ -189,11 +191,11 @@ place-items: center;
 margin-top:-1px;
 `;
 const StyledBurger = styled.div`
-width: 1.6rem;
-height: 1.6rem;
-position: fixed;
-top:35px;
-right: 15px;
+width: 1.3rem;
+height: 1.3rem;
+position: absolute;
+top:0px;
+right: 30px;
 z-index: 20;
 display: none;
 cursor: pointer;
@@ -204,21 +206,28 @@ cursor: pointer;
     z-index: 9999;
   }
 div {
-width: 1.6rem;
-height: 0.2rem;
-background-color: ${({ open }) => open ? '#7A6B6B' : '#7A6B6B'};
-border-radius: 10px;
+width: 1.35rem;
+height: 0.15rem;
+background-color: ${({ open }) => open ? '#3c3c3b' : '#3c3c3b'};
+border-radius:0px;
 transform-origin: 1px;
 transition: all 0.3s linear;
   &:nth-child(1) {
     transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+    top: 35px;
+    position: ${({ open }) => open ? 'fixed' : 'absolute'};
+
   }
   &:nth-child(2) {
     transform: ${({ open }) => open ? 'translateX(100%)' : 'translateX(0)'};
     opacity: ${({ open }) => open ? 0 : 1};
+    top: 42px;
+    position: ${({ open }) => open ? 'fixed' : 'absolute'};
   }
   &:nth-child(3) {
     transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+    top:49px;
+    position: ${({ open }) => open ? 'fixed' : 'absolute'};
   }
 }
 `;
@@ -227,12 +236,13 @@ list-style: none;
 display: flex;
 flex-flow: row nowrap;
 margin:0px 0 0 0;
+padding:0;
   li {
     padding: 0px 0px;
     margin:0 0 0 32px;
     position:relative;
       @media (max-width: 767px) {
-        margin:0px 0 10px 0;
+        margin:0px 0 14px 0;
       }
       &:hover a, a.active{
         border-bottom:3px solid #4E50F7;
@@ -242,12 +252,12 @@ margin:0px 0 0 0;
         @media (max-width: 767px) {
           display:block;
           list-style:none;
-          padding:0 0 0 15px;
-          margin:0;
+          padding:0px;
+          margin:14px 0 0 0;
         }
         li{
           @media (max-width: 767px) {
-            margin:5px 0 0 0;
+            margin:14px 0 0 0;
           }
         }
       }
@@ -264,18 +274,18 @@ margin:0px 0 0 0;
           position:inherit;
           box-shadow:inherit;
           background-color:inherit;
-          padding:0 0 0 15px;
+          padding:0px;
           width:100%;
         }
       }
       &:hover ul li{
-        margin:0 0 10px 0;
-        @media (max-width: 767px) {
-          margin:5px 0 0 0;
-        }
+        margin:0 0 14px 0;
       }
       &:hover ul li a{
         border-bottom:3px solid transparent;
+        @media (max-width: 767px) {
+          font-size:20px;
+        }
       }
       &:hover ul li:last-child{
         margin:0;
@@ -292,17 +302,16 @@ margin:0px 0 0 0;
     background-color: #f9f9f9;
     position: fixed;
     transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 300px;
-    padding-top: 3.5rem;
+    inset: 0;
+    // right: 0;
+    // height: 100vh;
+    width: 100%;
+    padding:100px 0;
     transition: transform 0.3s ease-in-out;
     margin: 0;
     z-index:999;
-      @media (max-width: 360px) {
-        width: 230px;
-      }
+    text-align: center;
+    overflow-y: scroll;
   }
   a {
     text-decoration: none;
@@ -310,6 +319,15 @@ margin:0px 0 0 0;
     font-size:14px;
     font-weight:700;
     border-bottom:3px solid transparent;
+    @media (max-width: 767px) {
+      font-size:24px;
+    }
+  }
+
+  li ul li a{
+    @media (max-width: 767px) {
+      font-size:20px;
+    }
   }
 `;
 const Button = styled.button`

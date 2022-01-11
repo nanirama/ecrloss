@@ -8,14 +8,14 @@ import SEO from '../components/SEO';
 import { EventIndex } from '../components/Event';
 import Pagination from '../components/Pagination';
 
-const EventFuturePastListTemplate = ({ pageContext, location }) => {
+const EventFuturePastListTemplate = ({ pageContext, path, location }) => {
 //   const { allPrismicEvent } = data;
 console.log('Data Content', pageContext)
 
 
   
 
-  const { basePath, paginationPath,humanPageNumber, currentPage, numPages, data } = pageContext;
+  const { basePath, paginationPath,humanPageNumber, categories, currentPage, numPages, data } = pageContext;
   console.log('pageContext', data)
   const events = data.map((event) => {
     return event.node
@@ -34,13 +34,21 @@ console.log('Data Content', pageContext)
   //   }
   // });
 
-
+  const normalizedCats = categories.map((cat) => ({
+    path: `${basePath}/${cat.uid}`,
+    name: cat.document.data.name,
+    color: cat.document.data.color,
+  }));
+  const categoriesList = [
+    { name: 'Everything', path: basePath },
+    ...normalizedCats,
+  ];
   if (!events) return null;
 
   return (
     <Layout location={location}>
       <SEO pathname={location.pathname} title="Events" />
-      <EventIndex events={events} basePath={basePath} path={paginationPath} />
+      <EventIndex events={events} basePath={basePath} path={paginationPath} categories={categoriesList} />
       <Pagination data={pageContext} />
       {numPages>1 && <Paginate currentPage={currentPage} numPages={numPages} path={basePath} />  }
     </Layout>

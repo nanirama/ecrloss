@@ -70,6 +70,7 @@ max-width: 1200px;
 margin: 124px auto 112px auto;
 padding:0 16px;
 text-align: center;
+box-sizing: border-box;
 @media (max-width:1024px) {
   margin: 60px auto;
 }

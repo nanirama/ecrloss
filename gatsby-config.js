@@ -76,6 +76,8 @@ module.exports = {
         display: 'standalone',
         icon: 'src/assets/images/favicon.png',
       },
+    },
+    {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {

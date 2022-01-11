@@ -57,7 +57,8 @@ const Container = styled.div`
 width: 100%;
 max-width: 1230px;
 margin:0 auto;
-padding:0 16px;
+padding:0 15px;
+box-sizing: border-box;
 `;
 const Heading = styled.h1`
 text-align:center;
@@ -82,5 +83,5 @@ const Flex = styled.div`
 display:flex;
 flex-wrap:wrap;
 justify-content: center;
-margin: -16px;
+margin: -15px;
 `;

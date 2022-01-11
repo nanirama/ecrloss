@@ -68,9 +68,10 @@ img{
 `;
 const Container = styled.div`
 width: 100%;
-max-width: 900px;
+max-width: 930px;
 margin: 0 auto;
 padding:0 15px;
+box-sizing: border-box;
 `;
 const Text = styled.div`
 display:flex;

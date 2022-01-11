@@ -22,11 +22,13 @@ export default TextBlock;
 
 const Container = styled.div`
 width: 100%;
-max-width: 700px;
+max-width: 730px;
 margin: 64px auto;
-padding:0 0px 0 32px;box-sizing:border-box;
+padding:0 15px;
+box-sizing: border-box;
 @media (max-width: 767px) {
   margin: 40px auto;
+  padding:0 15px;
 }
 h1{
   font-size:18px;

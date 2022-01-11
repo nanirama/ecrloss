@@ -5,16 +5,17 @@ import styled from "styled-components";
 import EventItem from './EventItem';
 import Dropdown from '../Blog/Dropdown';
 
-const EventIndex = ({ events, basePath, path }) => {
-  const categoriesList = [
-    { name: 'Everything', path: basePath },
-    { name: 'Past Events', path: basePath+'/past/' },
-    { name: 'Future Events', path: basePath+'/future/' },
-  ];
+const EventIndex = ({ events, basePath, categories, path }) => {
+  
+  // const categoriesList = [
+  //   { name: 'Everything', path: basePath },
+  //   { name: 'Past Events', path: basePath+'/past/' },
+  //   { name: 'Future Events', path: basePath+'/future/' },
+  // ];
   return (
     <Box>
       <Container>
-        <Dropdown items={categoriesList} path={path} />
+        <Dropdown items={categories} path={path} />
       </Container>
       <Container>
         <Heading>
@@ -51,6 +52,7 @@ const Box = styled.div`
 const Container = styled.div`
  max-width:900px;
  margin: 0 auto;
+ 
 `;
 const Heading = styled.h1`
 font-size: 48px;

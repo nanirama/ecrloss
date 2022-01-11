@@ -8,7 +8,7 @@ import SEO from '../components/SEO';
 import { EventIndex } from '../components/Event';
 import Pagination from '../components/Pagination';
 
-const EventListTemplate = ({ data, pageContext, path, location }) => {
+const EventListTemplate = ({ data, pageContext, path,  location }) => {
   const {
     allPrismicEvent: { edges: eventsData },
   } = data;
@@ -39,13 +39,12 @@ const EventListTemplate = ({ data, pageContext, path, location }) => {
     ...normalizedCats,
   ];
 
-
   if (!events) return null;
 
   return (
     <Layout location={location}>
       <SEO pathname={location.pathname} title="Events" />
-      <EventIndex events={events} basePath={basePath} path={paginationPath} categories={categoriesList} />
+      <EventIndex events={events} basePath={basePath} path={paginationPath} categories={categoriesList}  />
       <Pagination data={pageContext} />
     </Layout>
   );
@@ -58,8 +57,9 @@ EventListTemplate.propTypes = {
 export default EventListTemplate;
 
 export const data = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query($uid: String!, $skip: Int!, $limit: Int!) {
     allPrismicEvent(
+      filter: {data: {category: {uid: {eq: $uid}}}}
       sort: { fields: data___start_date, order: DESC }
       skip: $skip
       limit: $limit

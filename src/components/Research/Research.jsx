@@ -123,6 +123,7 @@ max-width: 1230px;
 margin:0 auto;
 padding:0 15px;
 position: relative;
+box-sizing: border-box;
 `;
 const Wrapper = styled.section`
 background-color:#f7f7f7;

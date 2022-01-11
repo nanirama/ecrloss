@@ -28,9 +28,10 @@ export default Video;
 
 const Container = styled.div`
 width: 100%;
-max-width: 900px;
+max-width: 930px;
 margin: 64px auto;
 padding:0 15px;
+box-sizing: border-box;
 iframe{
   width:100%;
   height:530px;

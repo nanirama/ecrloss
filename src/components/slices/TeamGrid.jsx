@@ -54,9 +54,10 @@ export default TeamGrid;
 
 const Container = styled.div`
 width: 100%;
-max-width: 900px;
+max-width: 930px;
 margin: 64px auto;
 padding:0 15px;
+box-sizing: border-box;
 @media (max-width:767px) {
   margin: 40px auto
 }
