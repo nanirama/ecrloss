@@ -194,7 +194,7 @@ const StyledBurger = styled.div`
 width: 1.3rem;
 height: 1.3rem;
 position: absolute;
-top:0px;
+top:30px;
 right: 30px;
 z-index: 20;
 display: none;
@@ -214,20 +214,20 @@ transform-origin: 1px;
 transition: all 0.3s linear;
   &:nth-child(1) {
     transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
-    top: 35px;
-    position: ${({ open }) => open ? 'fixed' : 'absolute'};
+    top: 0px;
+    position: ${({ open }) => open ? 'absolute' : 'absolute'};
 
   }
   &:nth-child(2) {
     transform: ${({ open }) => open ? 'translateX(100%)' : 'translateX(0)'};
     opacity: ${({ open }) => open ? 0 : 1};
-    top: 42px;
-    position: ${({ open }) => open ? 'fixed' : 'absolute'};
+    top: 7px;
+    position: ${({ open }) => open ? 'absolute' : 'absolute'};
   }
   &:nth-child(3) {
     transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
-    top:49px;
-    position: ${({ open }) => open ? 'fixed' : 'absolute'};
+    top:14px;
+    position: ${({ open }) => open ? 'absolute' : 'absolute'};
   }
 }
 `;
