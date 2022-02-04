@@ -130,7 +130,7 @@ export const query = graphql`
                   name
                   logo {
                     url
-                    gatsbyImageData(layout: CONSTRAINED)
+                    gatsbyImageData(layout: CONSTRAINED, height: 30)
                   }
                   website {
                     type

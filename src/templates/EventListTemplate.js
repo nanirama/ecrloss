@@ -29,16 +29,20 @@ const EventListTemplate = ({ data, pageContext, path, location }) => {
     }
   });
 
-  const normalizedCats = categories.map((cat) => ({
-    path: `${basePath}/${cat.uid}`,
+  const futurenormalizedCats = categories.map((cat) => ({
+    path: `${basePath}/future/${cat.uid}`,
+    name: cat.document.data.name,
+    color: cat.document.data.color,
+  }));
+  const pastnormalizedCats = categories.map((cat) => ({
+    path: `${basePath}/past/${cat.uid}`,
     name: cat.document.data.name,
     color: cat.document.data.color,
   }));
   const categoriesList = [
     { name: 'Everything', path: basePath },
-    { name: 'Past Events', path:  basePath+'/past/' },
-    { name: 'Future Events', path: basePath+'/future/' },
-    ...normalizedCats,
+    { name: 'Past Events', path:  basePath+'/past/', subCats: pastnormalizedCats },
+    { name: 'Future Events', path: basePath+'/future/', subCats: futurenormalizedCats }
   ];
 
 

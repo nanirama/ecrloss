@@ -12,10 +12,10 @@ const HomeTemplate = ({ data, location }) => {
   } = data;
 
   if (!page) return null;
-
+  console.log("page Data",page)
   return (
     <Layout location={location}>
-      <SEO pathname={location.pathname} />
+      <SEO title={page.meta_title} description={page.meta_description} pathname={location.pathname} />
       <PageBody document={page} />
     </Layout>
   );
@@ -34,6 +34,8 @@ export const data = graphql`
         title {
           html
         }
+        meta_title
+        meta_description
         body {
           ... on PrismicHomeDataBodyCta {
             id

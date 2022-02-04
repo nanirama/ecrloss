@@ -10,13 +10,13 @@ import Pagination from '../components/Pagination';
 
 const EventFuturePastListTemplate = ({ pageContext, path, location }) => {
 //   const { allPrismicEvent } = data;
-console.log('Data Content', pageContext)
+//console.log('Data Content', pageContext)
 
 
   
 
   const { basePath, paginationPath,humanPageNumber, categories, currentPage, numPages, data } = pageContext;
-  console.log('pageContext', data)
+  //console.log('pageContext', data)
   const events = data.map((event) => {
     return event.node
   });
@@ -34,17 +34,22 @@ console.log('Data Content', pageContext)
   //   }
   // });
 
-  const normalizedCats = categories.map((cat) => ({
-    path: `${basePath}/${cat.uid}`,
+  const futurenormalizedCats = categories.map((cat) => ({
+    path: `${basePath}/future/${cat.uid}/`,
+    name: cat.document.data.name,
+    color: cat.document.data.color,
+  }));
+  const pastnormalizedCats = categories.map((cat) => ({
+    path: `${basePath}/past/${cat.uid}/`,
     name: cat.document.data.name,
     color: cat.document.data.color,
   }));
   const categoriesList = [
     { name: 'Everything', path: basePath },
-    { name: 'Past Events', path:  basePath+'/past/' },
-    { name: 'Future Events', path: basePath+'/future/' },
-    ...normalizedCats,
+    { name: 'Past Events', path:  basePath+'/past/', subCats: pastnormalizedCats },
+    { name: 'Future Events', path: basePath+'/future/', subCats: futurenormalizedCats }
   ];
+
   if (!events) return null;
 
   return (
@@ -52,7 +57,7 @@ console.log('Data Content', pageContext)
       <SEO pathname={location.pathname} title="Events" />
       <EventIndex events={events} basePath={basePath} path={paginationPath} categories={categoriesList} />
       <Pagination data={pageContext} />
-      {numPages>1 && <Paginate currentPage={currentPage} numPages={numPages} path={basePath} />  }
+      {numPages>1 && <Paginate currentPage={currentPage} numPages={numPages} path={paginationPath} />  }
     </Layout>
   );
 };

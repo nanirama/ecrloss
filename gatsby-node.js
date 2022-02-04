@@ -242,116 +242,6 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     });
 
-    const events = data.Events.edges;
-    let eventCategories = [];
-    const PastEEvents = events.filter((item)=>{
-      let EventMoment = moment() > moment(item.node.data.start_date);
-      if(EventMoment===true)
-      {
-        return item;
-      }
-    });
-    const FutureEvents = events.filter((item)=>{
-      let EventMoment = moment() > moment(item.node.data.start_date);
-      if(EventMoment===false)
-      {
-        return item;
-      }
-    });   
-
-    
-    events.forEach(({ node }) => {
-      let eventURL = `event/${node.uid}`;
-      createPage({
-        path: eventURL,
-        component: templates.event,
-        context: {
-          uid: node.uid,
-        },
-      });
-      _.each(events, (item) => {
-        if (_.get(item, 'node.data.category.uid')) {
-          eventCategories = eventCategories.concat(item.node.data.category);
-        }
-      });
-    });
-
-    eventCategories = _.uniqWith(eventCategories, _.isEqual);
-    //console.log('Research Categories',researchCategories)
-    eventCategories.forEach((cat) => {
-      const eventWithCat = events.filter(
-        (item) =>
-          item.node.data.category && item.node.data.category.uid === cat.uid
-      );
-      const categoryPath = `/event/${cat.uid}`;
-  
-      paginate({
-        createPage,
-        items: eventWithCat,
-        itemsPerPage: postsPerPage,
-        pathPrefix: categoryPath,
-        component: templates.eventCategoryList,
-        context: {
-          uid: cat.uid,
-          basePath: '/event',
-          paginationPath: categoryPath,
-          categories: eventCategories,
-        },
-      });
-    });
-
-    paginate({
-      createPage,
-      items: events,
-      itemsPerPage: postsPerPage,
-      pathPrefix: '/event',
-      component: templates.eventList,
-      context: {
-        basePath: '/event',
-        paginationPath: '/event',
-        categories: eventCategories,
-      },
-    });  
-
-    const fposts = _.cloneDeep(FutureEvents);
-    const numfPages = Math.ceil(fposts.length / postsPerPage)
-    Array.from({ length: numfPages }).forEach((_, i) => {
-      createPage({
-        path: `/event/future/${i === 0 ? "" : i + 1}`,
-        component: templates.eventFuturePastList,
-        context: {
-          basePath: '/event',
-          paginationPath: '/event/future/',
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          numPages: numfPages,
-          currentPage: i + 1,
-          categories: eventCategories,
-          data : FutureEvents.slice(i*postsPerPage,postsPerPage)
-        },
-      })
-    });
-
-    const pposts = _.cloneDeep(PastEEvents);
-    const numpPages = Math.ceil(pposts.length / postsPerPage)
-    Array.from({ length: numpPages }).forEach((_, i) => {
-      createPage({
-        path: `/event/past/${i === 0 ? "" : i + 1}`,
-        component: templates.eventFuturePastList,
-        context: {
-          basePath: '/event',
-          paginationPath: '/event/past/',
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          numPages: numpPages,
-          currentPage: i + 1,
-          categories: eventCategories,
-          data : PastEEvents.slice(i*postsPerPage,(i*postsPerPage)+postsPerPage)
-        },
-      })
-    });
-    
-
     const webinars =  data.Webinars.edges;
     paginate({
       createPage,
@@ -475,7 +365,6 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     });
     researchCategories = _.uniqWith(researchCategories, _.isEqual);
-    //console.log('Research Categories',researchCategories)
     paginate({
       createPage,
       items: researchPages,
@@ -511,7 +400,172 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     });
 
-    
-  
+    // Past and Future events getting
+    const events = data.Events.edges;
+    let eventCategories = [];
+    const PastEEvents = events.filter((item)=>{
+      let EventMoment = moment() > moment(item.node.data.start_date);
+      if(EventMoment===true)
+      {
+        return item;
+      }
+    });
+    const FutureEvents = events.filter((item)=>{
+      let EventMoment = moment() > moment(item.node.data.start_date);
+      if(EventMoment===false)
+      {
+        return item;
+      }
+    });   
 
+    // Event Single Page Generation
+    events.forEach(({ node }) => {
+      let eventURL = `event/${node.uid}`;
+      createPage({
+        path: eventURL,
+        component: templates.event,
+        context: {
+          uid: node.uid,
+        },
+      });
+      _.each(events, (item) => {
+        if (_.get(item, 'node.data.category.uid')) {
+          eventCategories = eventCategories.concat(item.node.data.category);
+        }
+      });
+    });
+
+    eventCategories = _.uniqWith(eventCategories, _.isEqual);
+    // Event Listing Page Generation
+    paginate({
+      createPage,
+      items: events,
+      itemsPerPage: postsPerPage,
+      pathPrefix: '/event',
+      component: templates.eventList,
+      context: {
+        basePath: '/event',
+        paginationPath: '/event',
+        categories: eventCategories,
+      },
+    });  
+
+    const fposts = _.cloneDeep(FutureEvents);
+    const numfPages = Math.ceil(fposts.length / postsPerPage)
+    Array.from({ length: numfPages }).forEach((_, i) => {
+      createPage({
+        path: `/event/future/${i === 0 ? "" : i + 1}`,
+        component: templates.eventFuturePastList,
+        context: {
+          basePath: '/event',
+          paginationPath: '/event/future/',
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages: numfPages,
+          currentPage: i + 1,
+          categories: eventCategories,
+          data : FutureEvents.slice(i*postsPerPage,(i + 1)*postsPerPage)
+        },
+      })
+    });
+
+
+
+    const pposts = _.cloneDeep(PastEEvents);
+    const numpPages = Math.ceil(pposts.length / postsPerPage)
+    Array.from({ length: numpPages }).forEach((_, i) => {
+      createPage({
+        path: `/event/past/${i === 0 ? "" : i + 1}`,
+        component: templates.eventFuturePastList,
+        context: {
+          basePath: '/event',
+          paginationPath: '/event/past/',
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages: numpPages,
+          currentPage: i + 1,
+          categories: eventCategories,
+          data : PastEEvents.slice(i*postsPerPage,(i + 1)*postsPerPage)
+        },
+      })
+    });
+    let numffPages = 0;
+    eventCategories.forEach((cat) => {
+      const feventWithCat = fposts.filter(
+        (item) =>
+          item.node.data.category && item.node.data.category.uid === cat.uid
+      );
+      const categoryPath = `/event/future/${cat.uid}`;
+        numffPages = Math.ceil(feventWithCat.length / postsPerPage)
+        Array.from({ length: numfPages }).forEach((_, i) => {
+          createPage({
+            path: `${categoryPath}/${i === 0 ? "" : i + 1}`,
+            component: templates.eventFuturePastList,
+            context: {
+              basePath: '/event',
+              paginationPath: `${categoryPath}/`,
+              limit: postsPerPage,
+              skip: i * postsPerPage,
+              numPages: numffPages,
+              currentPage: i + 1,
+              categories: eventCategories,
+              data : feventWithCat.slice(i*postsPerPage,(i + 1)*postsPerPage)
+            },
+          })
+        }); 
+    });
+
+    let numppPages = 0
+
+    eventCategories.forEach((cat) => {
+      const peventWithCat = pposts.filter(
+        (item) =>
+          item.node.data.category && item.node.data.category.uid === cat.uid
+      );
+      const categoryPath = `/event/past/${cat.uid}`;
+
+
+        numppPages = Math.ceil(peventWithCat.length / postsPerPage)
+        Array.from({ length: numppPages }).forEach((_, i) => {
+          createPage({
+            path: `${categoryPath}/${i === 0 ? "" : i + 1}`,
+            component: templates.eventFuturePastList,
+            context: {
+              basePath: '/event',
+              paginationPath: `${categoryPath}/`,
+              limit: postsPerPage,
+              skip: i * postsPerPage,
+              numPages: numppPages,
+              currentPage: i + 1,
+              categories: eventCategories,
+              data : peventWithCat.slice(i*postsPerPage,(i + 1)*postsPerPage)
+            },
+          })
+        });
+    });
 };
+
+
+// eventCategories = _.uniqWith(eventCategories, _.isEqual);
+//     //console.log('Research Categories',researchCategories)
+//     eventCategories.forEach((cat) => {
+//       const eventWithCat = events.filter(
+//         (item) =>
+//           item.node.data.category && item.node.data.category.uid === cat.uid
+//       );
+//       const categoryPath = `/event/${cat.uid}`;
+  
+//       paginate({
+//         createPage,
+//         items: eventWithCat,
+//         itemsPerPage: postsPerPage,
+//         pathPrefix: categoryPath,
+//         component: templates.eventCategoryList,
+//         context: {
+//           uid: cat.uid,
+//           basePath: '/event',
+//           paginationPath: categoryPath,
+//           categories: eventCategories,
+//         },
+//       });
+//     });

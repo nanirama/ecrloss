@@ -40,10 +40,9 @@ img{
 }
 `;
 const ClientLogos = styled.div`
-width:auto;
-  max-width:100%;
-img{
   width:auto;
   max-width:100%;
-}
+  .gatsby-image-wrapper{
+    margin:4px 0px 18px;
+  }
 `;

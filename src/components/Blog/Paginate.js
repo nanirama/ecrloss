@@ -11,7 +11,7 @@ const path = props.path
   const isLast = currentPage === numPages
 
   const prevPage =
-    currentPage - 1 === 1 ? `${path}/` : `${path}${currentPage - 1}`
+    currentPage - 1 === 1 ? `${path}` : `${path}${currentPage - 1}`
   const nextPage = `${path}${currentPage + 1}`
   const firstPage = `${path}/`
   const lastPage = `${path}${numPages}`
