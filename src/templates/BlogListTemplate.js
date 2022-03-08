@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import { BlogIndex } from '../components/Blog';
 import Pagination from '../components/Pagination';
 
@@ -30,7 +30,7 @@ const BlogListTemplate = ({ data, pageContext, path, location }) => {
 
   return (
     <Layout bgcolor="#ffffff" location={location}>
-      <SEO pathname={location.pathname} title="Blog" />
+      <Seo pathname={location.pathname} title="Blog" />
       <BlogIndex
         blogs={blogs}
         basePath={basePath}

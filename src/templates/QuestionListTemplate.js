@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import { QuestionListTemplate as QuestionListView } from '../components/FAQ';
 
 const QuestionListTemplate = ({ data, pageContext, location }) => {
@@ -19,7 +19,7 @@ const QuestionListTemplate = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO pathname={location.pathname} title="Qeustions" />
+      <Seo pathname={location.pathname} title="Qeustions" />
       <QuestionListView data={{ categories, questions, allQuestions }} />
     </Layout>
   );

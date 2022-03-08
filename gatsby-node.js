@@ -547,7 +547,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
 // eventCategories = _.uniqWith(eventCategories, _.isEqual);
-//     //console.log('Research Categories',researchCategories)
+
 //     eventCategories.forEach((cat) => {
 //       const eventWithCat = events.filter(
 //         (item) =>

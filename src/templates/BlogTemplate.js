@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import PageBody from '../components/PageBody';
 import { Header } from '../components/Blog';
 import styled from "styled-components";
@@ -28,7 +28,7 @@ const BlogTemplate = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO
+      {/* <Seo
         pathname={location.pathname}
         title={metaTitle || title.text}
         description={metaDescription || excerpt}
@@ -39,7 +39,7 @@ const BlogTemplate = ({ data, pageContext, location }) => {
             ? image.url
             : undefined
         }
-      />
+      /> */}
       <Wrapper>
       <Container>
       

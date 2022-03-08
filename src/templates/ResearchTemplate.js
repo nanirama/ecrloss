@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import Research from '../components/Research';
 
 import styled from "styled-components";
@@ -25,11 +25,9 @@ const ResearchTemplate = ({ data, location }) => {
     (item) => item.type === 'heading2' || item.type === 'heading3'
   );
 
-  console.log('All Columns',tocData)
-
   return (
     <Layout location={location}>
-      <SEO
+      <Seo
         pathname={location.pathname}
         title={metaTitle || page.title.text}
         description={metaDescription}

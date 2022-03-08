@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import PageBody from '../components/PageBody';
 import { Header, Webinar } from '../components/Webinar';
 
@@ -31,7 +31,7 @@ const WebinarTemplate = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO
+      <Seo
         pathname={location.pathname}
         title={metaTitle || page.title.text}
         description={metaDescription}

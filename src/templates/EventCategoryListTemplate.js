@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import moment from 'moment';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import { EventIndex } from '../components/Event';
 import Pagination from '../components/Pagination';
 
@@ -45,7 +45,7 @@ const EventListTemplate = ({ data, pageContext, path,  location }) => {
 
   return (
     <Layout location={location}>
-      <SEO pathname={location.pathname} title="Events" />
+      <Seo pathname={location.pathname} title="Events" />
       <EventIndex events={events} basePath={basePath} path={paginationPath} categories={categoriesList}  />
       <Pagination data={pageContext} />
     </Layout>

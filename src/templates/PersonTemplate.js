@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import PageBody from '../components/PageBody';
 import PersonPageTemplate from '../components/PersonTemplate';
 
@@ -16,7 +16,7 @@ const PersonTemplate = ({ data, location, ...props }) => {
 
   return (
     <Layout location={location}>
-      <SEO pathname={location.pathname} title={`${page.name} | ${page.title}`} />
+      <Seo pathname={location.pathname} title={`${page.name} | ${page.title}`} />
       <PersonPageTemplate data={page} />
       <PageBody document={page} />
     </Layout>

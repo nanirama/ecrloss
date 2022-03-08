@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Facebook from './Facebook';
 
-const SEO = ({ title, description, image, pathname }) => {
+const Seo = ({ title, description, image, pathname }) => {
   const data = useStaticQuery(query);
   const {
     title: defaultTitle,
@@ -47,7 +47,7 @@ const SEO = ({ title, description, image, pathname }) => {
   );
 };
 
-export default SEO;
+export default Seo;
 
 const query = graphql`
   query SEO {
@@ -68,14 +68,14 @@ const query = graphql`
   }
 `;
 
-SEO.propTypes = {
+Seo.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   pathname: PropTypes.string
 };
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   title: null,
   description: null,
   image: null,

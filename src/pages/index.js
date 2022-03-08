@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import PageBody from '../components/PageBody';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 
 const HomeTemplate = ({ data, location }) => {
   const {
@@ -12,10 +12,9 @@ const HomeTemplate = ({ data, location }) => {
   } = data;
 
   if (!page) return null;
-  console.log("page Data",page)
   return (
     <Layout location={location}>
-      <SEO title={page.meta_title} description={page.meta_description} pathname={location.pathname} />
+      <Seo title={page.meta_title} description={page.meta_description} pathname={location.pathname} />
       <PageBody document={page} />
     </Layout>
   );

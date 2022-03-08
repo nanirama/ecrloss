@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import ResearchIndex from '../components/Research/ResearchIndex';
 import Pagination from '../components/Pagination';
 
@@ -14,7 +14,7 @@ const ResearchCategoryTemplate = ({ data, pageContext, path, location }) => {
 
   const researches = allPrismicResearch.edges.map((research) => research.node);
 
-  console.log('Page content', categories)
+
   const normalizedCats = categories.map((cat) => ({
     path: `${basePath}/${cat.uid}`,
     name: cat.document.data.name,
@@ -29,7 +29,7 @@ const ResearchCategoryTemplate = ({ data, pageContext, path, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO pathname={location.pathname} title="Research papers" />
+      <Seo pathname={location.pathname} title="Research papers" />
       <ResearchIndex
         data={researches}
         basePath={basePath}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import { WebinarIndex } from '../components/Webinar';
 import Pagination from '../components/Pagination';
 
@@ -20,7 +20,7 @@ const WebinarListTemplate = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO pathname={location.pathname} title="Webinars" />
+      <Seo pathname={location.pathname} title="Webinars" />
       <WebinarIndex
         webinars={webinars}
         basePath={basePath}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 import ResearchIndex from '../components/Research/ResearchIndex';
 import Pagination from '../components/Pagination';
 
@@ -32,7 +32,7 @@ const ResearchListTemplate = ({ data, pageContext, path, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO pathname={location.pathname} title="Research papers" />
+      <Seo pathname={location.pathname} title="Research papers" />
       <ResearchIndex
         data={researches}
         basePath={basePath}

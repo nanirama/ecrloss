@@ -9,7 +9,6 @@ const TOC = ({ data }) => {
     "text": "Abstract"
   }
   data.unshift(SummaryDoc);
-  console.log('new data', data)
   return(
   <Links>
     {data.map((item) => (
