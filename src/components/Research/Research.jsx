@@ -40,7 +40,7 @@ const Research = (props) => {
   const pageURL = ''
   
   
-
+  console.log('file data',file)
   return(
   <div>
       <ResearchSidebar

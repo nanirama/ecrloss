@@ -6,8 +6,6 @@ import ArrowDown from '../../assets/icons/ArrowDown'
 import styled from "styled-components";
 
 const Dropdown = ({ items, path }) => {
-  console.log('Selected Path', path)
-  console.log('Categories List', items)
   const selected = items.find((item) =>{
     const subSelectedItem = item.subCats && item.subCats.find((subitem)=>{
       return subitem.path === path 

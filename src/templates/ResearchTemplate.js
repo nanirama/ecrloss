@@ -24,7 +24,7 @@ const ResearchTemplate = ({ data, location }) => {
   const tocData = page.content.raw.filter(
     (item) => item.type === 'heading2' || item.type === 'heading3'
   );
-
+    console.log('all Page data',page)
   return (
     <Layout location={location}>
       <Seo

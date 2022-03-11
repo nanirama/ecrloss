@@ -25,10 +25,9 @@ const BlogTemplate = ({ data, pageContext, location }) => {
     meta_description: metaDescription,
     social_card: socialCard,
   } = page;
-
   return (
     <Layout location={location}>
-      {/* <Seo
+      <Seo
         pathname={location.pathname}
         title={metaTitle || title.text}
         description={metaDescription || excerpt}
@@ -39,7 +38,7 @@ const BlogTemplate = ({ data, pageContext, location }) => {
             ? image.url
             : undefined
         }
-      /> */}
+      />
       <Wrapper>
       <Container>
       

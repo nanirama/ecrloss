@@ -51,11 +51,12 @@ const SideBarContent = ({
           )
           .join('&');
       };
-    
+      console.log('Download Url in Popup', downloadURL)
       const handleDownload = () => {
         let anchor = document.createElement('a');
-    
+        console.log('Download Url in after button click', downloadURL.url)
         const filePath = downloadURL.url.replace(/^.*\/\/[^\/]+/, '');
+        console.log('Download Url in after filePath', filePath)
     
         downloadFile(`/download${filePath}`).then((blob) => {
           let objectUrl = window.URL.createObjectURL(blob);
@@ -232,6 +233,8 @@ const ResearchSidebar = ({
     const onSetSidebarOpen = (open) => {
         setSidebarOpen(open)
     }    
+
+    console.log('Download Url', downloadURL)
     return (
       <SideBarContainer
         >

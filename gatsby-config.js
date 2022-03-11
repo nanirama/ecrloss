@@ -48,7 +48,6 @@ module.exports = {
         "transpileTemplateLiterals": false
       },
     },
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,

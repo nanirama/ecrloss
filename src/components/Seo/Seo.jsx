@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby';
-
-import Facebook from './Facebook';
 
 const Seo = ({ title, description, image, pathname }) => {
   const data = useStaticQuery(query);
@@ -29,20 +27,20 @@ const Seo = ({ title, description, image, pathname }) => {
 
   return (
     <>
-      <Helmet title={seo.title} titleTemplate={titleTemplate}>
+    <Helmet title={seo.title} titleTemplate={titleTemplate} defer={false}>
         <html lang={siteLanguage} />
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
-      </Helmet>
-      <Facebook
-        desc={seo.description}
-        image={seo.image}
-        title={seo.title}
-        type="website"
-        url={seo.url}
-        locale={ogLanguage}
-        name={facebook}
-      />
+
+        {facebook && <meta property="og:site_name" content={facebook} />}
+        <meta property="og:locale" content={ogLanguage} />
+        <meta property="og:url" content={seo.url} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={seo.title} />
+        <meta property="og:description" content={seo.description} />
+        <meta property="og:image" content={seo.image} />
+        <meta property="og:image:alt" content={seo.description} />
+    </Helmet> 
     </>
   );
 };
